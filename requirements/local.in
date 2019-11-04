@@ -1,0 +1,5 @@
+-r test.txt
+
+django-debug-toolbar
+pip-tools
+pre-commit

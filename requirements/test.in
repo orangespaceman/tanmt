@@ -1,0 +1,8 @@
+-r base.txt
+
+factory-djoy
+flake8
+isort
+pytest-django
+seed-isort-config
+yapf

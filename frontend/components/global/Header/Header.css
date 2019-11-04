@@ -1,0 +1,65 @@
+/**
+ * @define Header; use strict
+ */
+
+.Header {
+  padding: var(--gutter-triple) 0 var(--gutter-half) 0;
+  position: relative;
+  text-align: center;
+}
+
+@media (--small) {
+  .Header {
+    padding-bottom: var(--gutter-double);
+  }
+}
+
+.Header-socialList {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+/* Link */
+
+.Header-link {
+  color: var(--colour-grey-dark);
+  display: block;
+  font-size: var(--font-size-h3);
+  margin-bottom: var(--gutter-half);
+  text-decoration: none;
+}
+
+@media (--small) {
+  .Header-link {
+    font-size: var(--font-size-h2);
+  }
+}
+
+@media (--medium) {
+  .Header-link {
+    font-size: var(--font-size-h1);
+  }
+}
+
+/* Nav */
+
+.Header-navList {
+  font-size: var(--font-size-h4);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.Header-navItem {
+  display: inline-block;
+  margin: 0 var(--gutter-half);
+}
+
+.Header-navLink {
+  color: var(--colour-grey-dark);
+}
+
+.Header-navLink:hover {
+  opacity: var(--opacity-hover);
+}

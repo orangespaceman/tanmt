@@ -1,0 +1,42 @@
+{% extends 'admin/change_list.html' %}
+{% load static %}
+
+{% block extrastyle %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/admin.css' %}">
+{% endblock %}
+
+{% block object-tools %}
+    <div class="publish-picture-forms">
+        <p>
+          New pictures are automatically published at 10:30am every Friday. <br/>
+          Use this button to manually publish the next picture now:
+        </p>
+        <form class="publish-picture-form" action="publish/" method="POST">
+            {% csrf_token %}
+            <button class="publish-picture-button" type="submit">Publish next picture</button>
+        </form>
+    </div>
+    <div class="publish-picture-forms">
+        <p>
+          Pictures should have been posted to Twitter and Instagram/Facebook. <br/>
+          If something went wrong, use these buttons to manually publish the latest picture:
+        </p>
+        <form class="publish-picture-form" action="republish-twitter/" method="POST">
+            {% csrf_token %}
+            <button class="publish-picture-button" type="submit">Republish to Twitter</button>
+        </form>
+        <form class="publish-picture-form" action="republish-instagram/" method="POST">
+            {% csrf_token %}
+            <button class="publish-picture-button" type="submit">Republish to Instagram/Facebook</button>
+        </form>
+    </div>
+
+    <p>
+      Add a new picture to the website <br/>
+      (This doesn't automatically publish it.)
+    </p>
+
+
+    {{ block.super }}
+{% endblock %}

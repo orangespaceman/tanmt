@@ -1,0 +1,113 @@
+/**
+ * @define Footer; use strict
+ */
+
+.Footer {
+  color: var(--colour-grey-dark);
+  margin-top: var(--gutter-quad);
+  padding-bottom: var(--gutter);
+  padding-top: var(--gutter);
+  position: relative;
+}
+
+.Footer::before,
+.Footer::after {
+  border: 2px solid var(--colour-grey-mid);
+  content: "";
+  display: block;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: rotate(1.5deg);
+}
+
+.Footer::after {
+  border-color: var(--colour-grey-light);
+  border-width: 1px;
+  top: 6px;
+  transform: rotate(0.5deg);
+}
+
+.Footer-links {
+  font-size: var(--font-size-h4);
+  margin-bottom: var(--gutter);
+}
+
+.Footer-copyright {
+  margin-bottom: var(--gutter);
+  padding-top: var(--gutter-double);
+}
+
+@media (--small) {
+  .Footer-copyright {
+    padding-top: 0;
+  }
+}
+
+.Footer-pages {
+  font-size: var(--font-size-h4);
+  list-style: none;
+  margin: 0 0 var(--gutter) 0;
+  padding: 0;
+}
+
+.Footer-page {
+  display: inline-block;
+  margin: 0 var(--gutter) 0 0;
+}
+
+.Footer-pageLink {
+  color: var(--colour-grey-dark);
+}
+
+.Footer-pageLink:hover {
+  opacity: var(--opacity-hover);
+}
+
+.Footer-socialList {
+  text-align: right;
+}
+
+/* Beast */
+
+.Footer-beast {
+  position: relative;
+  transform: rotate(12deg);
+  transform-origin: 100% 100%;
+  z-index: 2;
+}
+
+.Footer-beast::before,
+.Footer-beast::after {
+  background: url("../img/footer-beast-legs.png") transparent no-repeat left
+    center;
+  background-size: contain;
+  content: "";
+  height: 180px;
+  position: absolute;
+  right: -30px;
+  top: -140px;
+  width: 140px;
+  z-index: 1;
+}
+
+.Footer-beast::after {
+  animation: FooterBeast 6s ease infinite;
+  background-image: url("../img/footer-beast-body.png");
+  transform-origin: 100% 80%;
+  z-index: 2;
+}
+
+@keyframes FooterBeast {
+  0%,
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(3deg) translate(3px, 3px) scale(1.02);
+  }
+  75% {
+    transform: rotate(-3deg) translate(3px, -3px) scale(0.98);
+  }
+}

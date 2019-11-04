@@ -1,0 +1,65 @@
+/**
+ * HTML - basic reset for main element styles
+ */
+
+/* box model: http://goo.gl/quQpCV */
+
+html {
+  box-sizing: border-box;
+  font-size: var(--font-size-default);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/* containers */
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: var(--colour-background);
+  color: var(--colour-black);
+  font-family: var(--font-body);
+}
+
+/* headings */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-headings);
+  font-weight: bold;
+}
+
+/* text */
+
+/* lists */
+
+/* media */
+
+img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+/* links */
+
+/* forms */
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  -webkit-appearance: none; /* stylelint-disable-line property-no-vendor-prefix */
+  border-radius: 0;
+  font-size: var(--font-size-forms);
+}

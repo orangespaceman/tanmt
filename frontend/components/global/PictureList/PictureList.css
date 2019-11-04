@@ -1,0 +1,56 @@
+/**
+ * @define PictureList; use strict
+ */
+
+.PictureList {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: var(--gutter-double);
+  margin-left: var(--negative-gutter);
+  margin-right: var(--negative-gutter);
+  position: relative;
+}
+
+.PictureList-item {
+  flex-basis: 100%;
+  margin: var(--gutter) 0 var(--gutter-double) 0;
+}
+
+@media (--medium) {
+  .PictureList-item {
+    flex-basis: 33.33%;
+  }
+}
+
+.PictureList-link {
+  color: var(--colour-link);
+  display: block;
+  margin: 0 var(--gutter);
+  text-decoration: none;
+}
+
+.PictureList-img {
+  margin-bottom: var(--gutter-half);
+  width: 100%;
+}
+
+.PictureList-title {
+  display: block;
+  font-size: var(--font-size-h3);
+  margin-bottom: var(--gutter-quarter);
+  text-decoration: underline;
+}
+
+.PictureList-link:hover .PictureList-title {
+  opacity: var(--opacity-hover);
+}
+
+.PictureList-publishedDate {
+  font-size: var(--font-size-default);
+  font-style: normal;
+}
+
+.PictureList-itemEmpty {
+  flex-basis: 100%;
+  margin: var(--gutter);
+}

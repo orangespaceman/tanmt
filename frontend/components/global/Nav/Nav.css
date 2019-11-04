@@ -1,0 +1,52 @@
+/**
+ * @define Nav; use strict
+ */
+
+.Nav {
+  margin-bottom: var(--gutter);
+  text-align: center;
+}
+
+.Nav-list {
+  font-size: var(--font-size-default);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.Nav-item {
+  display: inline-block;
+  margin: var(--gutter-quarter);
+}
+
+.Nav-link {
+  border: 1px solid var(--colour-grey-mid);
+  color: var(--colour-grey-dark);
+  display: block;
+  padding: 0.2rem var(--gutter-half);
+  text-decoration: none;
+}
+
+.Nav-link:hover {
+  opacity: var(--opacity-hover);
+}
+
+.Nav-link.is-disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.Nav-label {
+  display: none;
+}
+
+@media (--small) {
+  .Nav-label {
+    display: inline;
+  }
+}
+
+.Nav-icon {
+  display: inline-block;
+  padding: 0 0.1rem;
+}

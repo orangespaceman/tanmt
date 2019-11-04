@@ -1,0 +1,53 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    {% block meta %}
+      {% include '_partials/meta.html' %}
+    {% endblock %}
+    {% block extra_css %}{% endblock %}
+  </head>
+
+  <body>
+
+    {% if user.is_authenticated and user.is_superuser %}
+      {% include 'components/global/AdminLink/AdminLink.html' %}
+    {% endif %}
+
+    <div class="Wrap">
+      <div class="Wrap-outer">
+        <div class="Wrap-inner">
+
+          {% include 'components/global/Header/Header.html' with header_pages=header_pages only %}
+
+          <main class="Main">
+            {% block main %}
+            {% endblock %}
+          </main>
+
+          <div class="Main-footer">
+            {% include 'components/global/Footer/Footer.html' with footer_pages=footer_pages only %}
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    {% block extra_js %}{% endblock %}
+    <script src="{% static 'js/site.js' %}"></script>
+
+    {% if ANALYTICS %}
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', '{{ANALYTICS}}', 'auto');
+        ga('send', 'pageview');
+      </script>
+    {% endif %}
+
+  </body>
+</html>

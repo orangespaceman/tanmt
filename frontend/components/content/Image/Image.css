@@ -1,0 +1,32 @@
+/**
+ * @define Image; use strict
+ */
+
+.Image {
+  background: var(--colour-grey-light);
+  position: relative;
+  text-align: center;
+}
+
+.Image-img {
+  max-height: 90vh;
+  vertical-align: bottom;
+  width: auto;
+}
+
+@media (--medium) {
+  .Image-img {
+    max-height: 75vh;
+  }
+}
+
+.Image-caption {
+  background: rgba(0, 0, 0, 0.3);
+  bottom: 0;
+  color: var(--colour-white);
+  font-style: italic;
+  margin: 0;
+  padding: var(--gutter-half) var(--gutter);
+  position: absolute;
+  right: 0;
+}

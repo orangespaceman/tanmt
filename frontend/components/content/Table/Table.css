@@ -1,0 +1,73 @@
+/**
+ * @define Table; weak
+ *
+ * weak linting to stop the need for classes on all formatting
+ */
+
+.Table-title {
+  font-size: var(--font-size-h3);
+  font-weight: normal;
+  line-height: var(--line-height-h3);
+  margin: 2rem 0 0.5rem 0;
+}
+
+/* Table - links */
+
+.Table a {
+  color: var(--colour-link);
+}
+
+.Table a:hover {
+  opacity: var(--opacity-hover);
+}
+
+/* Tables */
+
+.Table table {
+  border-collapse: collapse;
+  border-color: var(--colour-white);
+  border-spacing: 0;
+  border-width: 0;
+  display: inline-block;
+  margin: var(--gutter-half) 0 var(--gutter-double) 0;
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+  width: 100%;
+}
+
+@media (--medium) {
+  .Table table {
+    display: table;
+    white-space: inherit;
+  }
+}
+
+.Table thead,
+.Table tfoot {
+  background: var(--colour-link);
+  color: var(--colour-white);
+  text-align: left;
+}
+
+.Table th {
+  border-bottom: 2px solid var(--colour-white);
+  padding: var(--gutter-half);
+}
+
+.Table td {
+  background-color: var(--colour-white);
+  border: 0;
+  padding: var(--gutter-half);
+}
+
+.Table tr:first-child td {
+  background: var(--colour-link);
+  border-bottom: 2px solid var(--colour-white);
+  color: var(--colour-white);
+  padding: var(--gutter-half);
+}
+
+.Table tr:nth-child(even) td {
+  background-color: var(--colour-link);
+}

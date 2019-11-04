@@ -1,0 +1,43 @@
+/**
+ * @define TopBeast; use strict
+ */
+
+.TopBeast {
+  display: none;
+}
+
+@media (--large) {
+  .TopBeast {
+    display: block;
+  }
+}
+
+.TopBeast::before,
+.TopBeast::after {
+  background: url("../img/top-beast-legs.png") transparent no-repeat left center;
+  background-size: contain;
+  content: "";
+  height: 140px;
+  left: 0;
+  position: absolute;
+  top: -124px;
+  width: 140px;
+  z-index: 2;
+}
+
+.TopBeast::after {
+  animation: PanelBeast 3s ease-in-out infinite alternate;
+  background-image: url("../img/top-beast-body.png");
+  transform: rotate(0deg);
+  transform-origin: 20% 40%;
+  z-index: 1;
+}
+
+@keyframes PanelBeast {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(15deg);
+  }
+}

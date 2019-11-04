@@ -1,0 +1,8 @@
+{% load thumbnail %}
+
+<div class="Image">
+  <img class="Image-img" src="{% thumbnail data.image 2000x0 %}" alt="{{data.image_alt}}" />
+  {% if data.caption %}
+    <p class="Image-caption">{{data.caption}}</p>
+  {% endif %}
+</div>

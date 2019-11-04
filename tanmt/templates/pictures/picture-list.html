@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+
+{% block main %}
+  {% include 'components/global/PageTitle/PageTitle.html' with title=title only %}
+  {% include 'components/global/PictureList/PictureList.html' with pictures=pictures only %}
+{% endblock %}

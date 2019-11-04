@@ -1,0 +1,107 @@
+version: 2.0
+jobs:
+  build:
+    docker:
+      - image: circleci/python:3.6-jessie-node
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - dependency-cache-npm-{{ checksum "package.json" }}
+            - dependency-cache-npm-
+      - restore_cache:
+          keys:
+            - dependency-cache-pip-{{ checksum "requirements/ci.txt" }}
+            - dependency-cache-pip-
+      - run:
+          name: NPM install
+          command: npm install
+      - save_cache:
+          key: dependency-cache-npm-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+      - run:
+          name: pip install
+          command: |
+            python3 -m venv venv
+            . venv/bin/activate
+            pip install -r requirements/ci.txt
+      - save_cache:
+          key: dependency-cache-pip-{{ checksum "requirements/ci.txt" }}
+          paths:
+            - ./venv
+
+  lint_frontend:
+    docker:
+      - image: circleci/python:3.6-jessie-node
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - dependency-cache-npm-{{ checksum "package.json" }}
+      - run:
+          name: Lint (Frontend)
+          command: npm run lint
+
+  lint_backend:
+    docker:
+      - image: circleci/python:3.6-jessie-node
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - dependency-cache-pip-{{ checksum "requirements/ci.txt" }}
+      - run:
+          name: Lint (Backend)
+          command: |
+            . venv/bin/activate
+            cd tanmt
+            isort --check-only --quiet --recursive --diff tanmt
+            yapf --diff --recursive --exclude=*migrations* tanmt
+            flake8
+
+  test_backend:
+    docker:
+      - image: circleci/python:3.6-jessie-node
+        environment:
+          PGHOST: 127.0.0.1
+          PGUSER: root
+
+      - image: circleci/postgres:10-alpine-postgis
+        environment:
+          POSTGRES_USER: testuser
+          POSTGRES_PASSWORD: testpw
+          POSTGRES_DB: testdb
+
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - dependency-cache-npm-{{ checksum "package.json" }}
+      - restore_cache:
+          keys:
+            - dependency-cache-pip-{{ checksum "requirements/ci.txt" }}
+      - run:
+          name: build frontend
+          command: npm run build
+      - run:
+          name: Test (Backend)
+          command: |
+            . venv/bin/activate
+            cp .env.ci.example .env
+            cd tanmt && pytest --ds=tanmt.settings.ci
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
+      - lint_frontend:
+          requires:
+            - build
+      - lint_backend:
+          requires:
+            - build
+      - test_backend:
+          requires:
+            - build

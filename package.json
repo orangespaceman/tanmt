@@ -1,0 +1,50 @@
+{
+  "name": "tanmt",
+  "version": "1.0.0",
+  "description": "The All New Magic Tortoise",
+  "scripts": {
+    "build:css": "postcss --config postcss.config.js frontend/css/site.css --output frontend/static/css/site.css",
+    "build:admin-css": "postcss --config postcss.config.js frontend/css/admin.css --output frontend/static/css/admin.css",
+    "build:js": "webpack --config webpack.config.js",
+    "build:templates": "node scripts/build-templates.js",
+    "build": "npm-run-all build:*",
+    "lint:css": "stylelint --config stylelint.config.js \"frontend/components/**/*.css\" && stylelint \"frontend/css/**/*.css\"",
+    "lint:js": "eslint --config eslint.config.js frontend/components/ frontend/js/",
+    "lint": "npm-run-all lint:*",
+    "precommit": "npm run lint",
+    "watch:css": "npm run build:css -- --watch",
+    "watch:admin-css": "npm run build:admin-css -- --watch",
+    "watch:js": "npm run build:js -- --watch",
+    "watch:templates": "npm run build:templates && chokidar 'frontend/**/*.html' 'frontend/**/*.json' -c 'npm run build:templates'",
+    "watch": "npm-run-all --parallel watch:*"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.6.1",
+    "chokidar-cli": "^2.0.0",
+    "cli-color": "^1.2.0",
+    "copy": "^0.3.2",
+    "cssnano": "^4.1.10",
+    "del": "^5.1.0",
+    "eslint": "^6.4.0",
+    "eslint-config-prettier": "^6.3.0",
+    "glob": "^7.1.4",
+    "husky": "^3.0.5",
+    "npm-run-all": "^4.1.5",
+    "postcss-calc": "^7.0.1",
+    "postcss-cli": "^6.1.3",
+    "postcss-custom-media": "^7.0.8",
+    "postcss-custom-properties": "^9.0.2",
+    "postcss-easy-import": "^3.0.0",
+    "prettier": "1.18.2",
+    "stylelint": "^11.0.0",
+    "stylelint-config-prettier": "^5.2.0",
+    "stylelint-config-suitcss": "^14.0.0",
+    "stylelint-selector-bem-pattern": "^2.1.0",
+    "webpack": "^4.40.2",
+    "webpack-cli": "^3.3.8"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.1",
+    "suitcss-base": "^5.0.0"
+  }
+}

@@ -1,0 +1,17 @@
+/**
+ * @define PageComponents; use strict
+ */
+
+.PageComponents-component {
+  margin-top: var(--gutter-double);
+}
+
+@media (--medium) {
+  .PageComponents-component {
+    margin-top: var(--gutter-quad);
+  }
+}
+
+.PageComponents-component:first-child {
+  margin-top: 0;
+}

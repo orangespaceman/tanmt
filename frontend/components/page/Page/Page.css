@@ -1,0 +1,8 @@
+/**
+ * @define Page; use strict
+ */
+
+.Page {
+  margin-bottom: var(--gutter-quad);
+  margin-top: var(--gutter);
+}

@@ -1,0 +1,19 @@
+{% load thumbnail %}
+
+<ul class="TagList">
+  {% for tag in tags %}
+    <li class="TagList-item">
+      <a class="TagList-link" href="{% url 'tags-detail' tag.slug %}">
+        {% with picture=tag.picture_set.all|random %}
+          <img class="TagList-img" src="{% thumbnail picture.image.image 500x375 crop %}" alt="{{ picture.title }}" />
+        {% endwith %}
+        <strong class="TagList-tag">#{{tag.slug}}</strong>
+        <em class="TagList-count">{{tag.picture_count}} picture{{tag.picture_count|pluralize}}</em>
+      </a>
+    </li>
+  {% empty %}
+    <li class="TagList-itemEmpty">
+      No tags found, please check again soon
+    </li>
+  {% endfor %}
+</ul>

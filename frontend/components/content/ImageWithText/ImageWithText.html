@@ -1,0 +1,24 @@
+{% load thumbnail %}
+
+<div class="ImageWithText
+  {% if data.background %}ImageWithText--{{data.background}}{% endif %}
+  {% if data.align %}ImageWithText--{{data.align}}{% endif %}
+">
+  {% if data.image and data.image.url %}
+    <img class="ImageWithText-img" src="{% thumbnail data.image 1400x0 %}" alt="{{data.image_alt}}" />
+  {% endif %}
+  <div class="ImageWithText-content">
+    {% if data.title %}
+    <h2 class="ImageWithText-title">
+      {{data.title}}
+    </h2>
+    {% endif %}
+    {% if data.content %}
+    <div class="ImageWithText-text">
+      <div class="Editorial">
+        {{data.content|safe}}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</div>

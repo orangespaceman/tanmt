@@ -1,0 +1,35 @@
+[
+    {
+        "model": "pages.page",
+        "pk": 1,
+        "fields": {
+            "display_in_header": true,
+            "display_in_footer": true,
+            "title": "About",
+            "parent": null,
+            "slug": "/about/",
+            "created_date": "2019-10-20T12:37:16.316Z",
+            "modified_date": "2019-10-20T18:29:41.432Z",
+            "author": 1
+        }
+    },
+    {
+        "model": "pages.component",
+        "pk": 1,
+        "fields": {
+            "order": 0,
+            "page": 1
+        }
+    },
+    {
+        "model": "pages.editorial",
+        "pk": 1,
+        "fields": {
+            "created_date": "2019-10-20T12:37:37.990Z",
+            "modified_date": "2019-10-20T12:44:45.634Z",
+            "title": "",
+            "content": "<p>Page content</p>",
+            "component": 1
+        }
+    }
+]

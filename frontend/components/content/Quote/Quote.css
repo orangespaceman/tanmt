@@ -1,0 +1,45 @@
+/**
+ * @define Quote; use strict
+ */
+
+.Quote {
+  background: var(--colour-white);
+  color: var(--colour-text);
+  padding: var(--gutter-quad);
+  text-align: center;
+}
+
+/* Quote - colour variants */
+
+.Quote--dark {
+  background: var(--colour-grey-dark);
+  color: var(--colour-white);
+}
+
+/* Quote - content */
+
+.Quote-text {
+  font-size: var(--font-size-h3);
+  font-style: italic;
+  font-weight: normal;
+  line-height: var(--line-height-h3);
+  margin-bottom: var(--gutter-half);
+}
+
+@media (--medium) {
+  .Quote-text {
+    font-size: var(--font-size-h3);
+    line-height: var(--line-height-h3);
+  }
+}
+
+.Quote-author {
+  font-size: var(--font-size-default);
+  line-height: var(--line-height-default);
+}
+
+@media (--medium) {
+  .Quote-author {
+    font-size: var(--font-size-default);
+  }
+}

@@ -1,0 +1,26 @@
+<div class="PageComponents">
+
+{% for component in components %}
+<div class="PageComponents-component">
+  {% if component.editorial %}
+    {% include 'components/content/Editorial/Editorial.html' with data=component.editorial %}
+  {% endif %}
+  {% if component.embed %}
+    {% include 'components/content/Embed/Embed.html' with data=component.embed %}
+  {% endif %}
+  {% if component.image %}
+    {% include 'components/content/Image/Image.html' with data=component.image %}
+  {% endif %}
+  {% if component.image_with_text %}
+    {% include 'components/content/ImageWithText/ImageWithText.html' with data=component.image_with_text %}
+  {% endif %}
+  {% if component.quote %}
+    {% include 'components/content/Quote/Quote.html' with data=component.quote %}
+  {% endif %}
+  {% if component.table %}
+    {% include 'components/content/Table/Table.html' with data=component.table %}
+  {% endif %}
+</div>
+{% endfor %}
+
+</div>

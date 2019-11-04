@@ -1,0 +1,39 @@
+{% load static %}
+
+<header class="Header">
+  <a class="Header-link" href="{% url 'picture-home' %}">
+    The All New Magic Tortoise
+  </a>
+  <div class="Header-nav">
+    <ul class="Header-navList">
+      <li class="Header-navItem">
+        <a class="Header-navLink" href="{% url 'picture-home' %}">
+          Home
+        </a>
+      </li>
+      <li class="Header-navItem">
+        <a class="Header-navLink" href="{% url 'picture-list' %}">
+          Pictures
+        </a>
+      </li>
+      <li class="Header-navItem">
+        <a class="Header-navLink" href="{% url 'tags-list' %}">
+          Tags
+        </a>
+      </li>
+      {% if header_pages %}
+        {% for page in header_pages %}
+          <li class="Header-navItem">
+            <a class="Header-navLink" href="{{page.slug}}">
+              {{page.title}}
+            </a>
+          </li>
+          {% endfor %}
+          {% endif %}
+    </ul>
+  </div>
+
+  <div class="Header-socialList">
+    {% include 'components/global/SocialList/SocialList.html' %}
+  </div>
+</header>

@@ -1,0 +1,13 @@
+{% extends 'admin/change_form.html' %}
+{% load static %}
+
+{% block extrastyle %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/admin.css' %}">
+{% endblock %}
+
+
+{% block admin_change_form_document_ready %}
+{{ block.super }}
+<script src="{% static 'js/admin.js' %}"></script>
+{% endblock %}

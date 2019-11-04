@@ -1,0 +1,19 @@
+{% load thumbnail %}
+
+<ul class="PictureList">
+  {% for picture in pictures %}
+    <li class="PictureList-item">
+      <a class="PictureList-link" href="{% url 'picture-slug' picture.published_id picture.slug %}">
+
+        <img class="PictureList-img" src="{% thumbnail picture.image.image 500x375 crop %}" alt="{{ picture.title }}" />
+
+        <strong class="PictureList-title">{{picture.title}}</strong>
+        <em class="PictureList-publishedDate">Published {{picture.published_date|date:"d M Y"}}</em>
+      </a>
+    </li>
+  {% empty %}
+    <li class="PictureList-itemEmpty">
+      No pictures found, please check again soon
+    </li>
+  {% endfor %}
+</ul>

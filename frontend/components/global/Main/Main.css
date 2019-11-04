@@ -1,0 +1,15 @@
+/**
+ * @define Main; use strict
+ */
+
+.Main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.Main-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}

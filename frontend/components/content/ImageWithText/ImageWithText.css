@@ -1,0 +1,79 @@
+/**
+ * @define ImageWithText; use strict
+ */
+
+.ImageWithText {
+  background: var(--colour-grey-dark);
+  color: var(--colour-white);
+}
+
+@media (--medium) {
+  .ImageWithText {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* ImageWithText - layout variants */
+
+@media (--medium) {
+  .ImageWithText {
+    flex-direction: row;
+  }
+
+  .ImageWithText--imageRight {
+    flex-direction: row-reverse;
+  }
+}
+
+/* ImageWithText - colour variants */
+
+.ImageWithText--dark {
+  background: var(--colour-grey-dark);
+  color: var(--colour-white);
+}
+
+.ImageWithText--white {
+  background: var(--colour-white);
+  border: 1px solid var(--colour-grey-light);
+  color: var(--colour-grey-dark);
+}
+
+@media (--medium) {
+  .ImageWithText--white {
+    border: none;
+  }
+}
+
+/* ImageWithText - content */
+
+.ImageWithText-img {
+  width: 100%;
+}
+
+@media (--medium) {
+  .ImageWithText-img {
+    align-self: flex-start;
+    flex: 1;
+    max-width: 50%;
+  }
+}
+
+.ImageWithText-content {
+  align-self: center;
+  flex: 1;
+  padding: var(--gutter-double);
+}
+
+.ImageWithText-title {
+  font-size: var(--font-size-h3);
+  font-weight: normal;
+  line-height: var(--line-height-h3);
+  margin-top: 0;
+}
+
+.ImageWithText-text {
+  font-size: var(--font-size-h4);
+  line-height: var(--line-height-h4);
+  margin-top: var(--gutter);
+}

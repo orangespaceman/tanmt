@@ -1,0 +1,35 @@
+{% load thumbnail %}
+
+{% if picture %}
+
+<div class="Panel">
+  <div class="Panel-beast">
+      {% include 'components/global/TopBeast/TopBeast.html' %}
+  </div>
+
+  <div class="Panel-imgWrap">
+    <img class="Panel-img" src="{% thumbnail picture.image.image 2000x0 %}" alt="{{ picture.title }}" />
+  </div>
+
+  <div class="Panel-details">
+    <h1 class="Panel-title">{{ picture.title }}</h1>
+    <p class="Panel-description">{{ picture.description }}</p>
+    <p class="Panel-publishedDate">Published {{picture.published_date|date:"d M Y"}}</p>
+    <ul class="Panel-tags">
+      {% for tag in picture.tags.all %}
+        <li class="Panel-tag">
+          <a class="Panel-tagLink" href="{% url 'tags-detail' tag.slug %}">#{{tag.slug}}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+{% else %}
+  {% include 'components/global/PageTitle/PageTitle.html' with title="Welcome" only %}
+  <div class="Panel">
+    <p class="Panel-empty">
+      No pictures found, please check again soon
+    </p>
+  </div>
+{% endif %}

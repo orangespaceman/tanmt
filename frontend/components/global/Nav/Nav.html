@@ -1,0 +1,50 @@
+<nav class="Nav">
+  <ul class="Nav-list">
+    <li class="Nav-item">
+      {% if nav.first %}
+      <a class="Nav-link" href="{% url 'picture-slug' nav.first.published_id nav.first.slug %}">
+      {% else %}
+      <a class="Nav-link is-disabled" href="#">
+      {% endif %}
+        <strong class="Nav-icon">|&lt;&lt;</strong>
+        <span class="Nav-label">First</span>
+      </a>
+    </li>
+    <li class="Nav-item">
+        {% if nav.previous %}
+        <a class="Nav-link" href="{% url 'picture-slug' nav.previous.published_id nav.previous.slug %}">
+        {% else %}
+        <a class="Nav-link is-disabled" href="#">
+        {% endif %}
+        <strong class="Nav-icon">&lt;</strong>
+        <span class="Nav-label">Previous</span>
+      </a>
+    </li>
+    <li class="Nav-item">
+      <a class="Nav-link" href="{% url 'picture-random' %}">
+        <strong class="Nav-icon">?</strong>
+        <span class="Nav-label">Random</span>
+      </a>
+    </li>
+    <li class="Nav-item">
+        {% if nav.next %}
+        <a class="Nav-link" href="{% url 'picture-slug' nav.next.published_id nav.next.slug %}">
+        {% else %}
+        <a class="Nav-link is-disabled" href="#">
+        {% endif %}
+        <span class="Nav-label">Next</span>
+        <strong class="Nav-icon">&gt;</strong>
+      </a>
+    </li>
+    <li class="Nav-item">
+        {% if nav.latest %}
+        <a class="Nav-link" href="{% url 'picture-slug' nav.latest.published_id nav.latest.slug %}">
+        {% else %}
+        <a class="Nav-link is-disabled" href="#">
+        {% endif %}
+        <span class="Nav-label">Latest</span>
+        <strong class="Nav-icon">&gt;&gt;|</strong>
+      </a>
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,42 @@
+# Logs
+*.log
+
+# Mac
+.DS_Store
+*~
+*.swp
+*.swo
+
+# npm
+/node_modules/
+npm-debug.log
+
+# Python
+*.py[cod]
+__pycache__
+
+# Distribution / packaging
+env/
+.env
+.env.production
+
+# Uploaded assets
+/media/
+
+# Static assets
+/static/
+
+# Compiled frontend files
+frontend/static/css
+frontend/static/js
+tanmt/templates/components
+
+# Tests
+__pycache__/
+.pytest_cache
+
+# PHP - insta
+insta/vendor
+
+# misc
+notes.txt

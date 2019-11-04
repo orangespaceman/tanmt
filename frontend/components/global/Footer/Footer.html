@@ -1,0 +1,25 @@
+<footer class="Footer">
+  <div class="Footer-beast"></div>
+
+  <div class="Footer-links">
+    <p class="Footer-copyright">
+      Copyright &copy; {% now "Y" %} The All New Magic Tortoise
+    </p>
+  </div>
+
+  {% if footer_pages %}
+    <ul class="Footer-pages">
+      {% for page in footer_pages %}
+        <li class="Footer-page">
+          <a class="Footer-pageLink" href="{{page.slug}}">
+            {{page.title}}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  <div class="Footer-socialList">
+    {% include 'components/global/SocialList/SocialList.html' with variant='footer' only %}
+  </div>
+</footer>

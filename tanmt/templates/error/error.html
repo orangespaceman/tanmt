@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block meta %}
+{% include '_partials/meta.html' with title='Error' %}
+{% endblock %}
+
+{% block main %}
+
+  {% include 'components/global/PageTitle/PageTitle.html' with title=error only %}
+  <div class="Editorial">
+      <p><em>({{status}} error)</em></p>
+      <p><a href="/">Return to the home page</a></p>
+  </div>
+
+{% endblock %}

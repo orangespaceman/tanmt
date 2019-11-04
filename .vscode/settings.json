@@ -1,0 +1,34 @@
+{
+  "editor.hover.enabled": true,
+
+  // CSS/JS Lint
+  "eslint.enable": true,
+  "stylelint.enable": true,
+  "css.validate": true,
+
+  // Prettier - enable per-language
+  "[javascript]": {
+    "editor.formatOnSave": true
+  },
+  "[css]": {
+    "editor.formatOnSave": true
+  },
+
+  // ESlint - custom config
+  "eslint.options": {
+    "configFile": "eslint.config.js"
+  },
+
+  // Python - custom config
+  "[python]": {
+    "editor.formatOnSave": true
+  },
+  "python.autoComplete.extraPaths": ["./tanmt"],
+  "python.formatting.provider": "yapf",
+  "python.pythonPath": "env/bin/python3.6",
+  "python.linting.enabled": true,
+  "python.linting.lintOnSave": true,
+  "python.linting.pylintEnabled": false,
+  "python.linting.flake8Enabled": true,
+  "python.linting.pycodestyleEnabled": false
+}

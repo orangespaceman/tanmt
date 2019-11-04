@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block main %}
+  {% if nav %}
+    {% include 'components/global/Nav/Nav.html' with nav=nav only %}
+  {% endif %}
+  {% include 'components/global/Panel/Panel.html' with picture=picture only %}
+{% endblock %}

@@ -1,0 +1,28 @@
+/**
+ * @define Wrap; use strict
+ */
+
+.Wrap {
+  margin: 0 auto;
+  max-width: 1200px;
+  overflow: hidden;
+}
+
+.Wrap-outer {
+  background: #fff;
+  box-shadow: 10px 10px 1px rgba(200, 200, 200, 0.5);
+  margin: 1rem;
+  padding: 1rem;
+  transform: rotate(-1deg);
+}
+
+@media (--medium) {
+  .Wrap-outer {
+    margin: 5rem;
+    padding: 1rem 2rem;
+  }
+}
+
+.Wrap-inner {
+  transform: rotate(1deg);
+}

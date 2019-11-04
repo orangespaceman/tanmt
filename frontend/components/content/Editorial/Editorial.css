@@ -1,0 +1,95 @@
+/**
+ * @define Editorial; weak
+ *
+ * Opt-in text content, see:
+ * https://css-tricks.com/opt-in-typography/
+ *
+ * weak linting to stop the need for classes on all formatting
+ */
+
+.Editorial > *:first-child {
+  margin-top: 0;
+}
+
+/* Headings */
+
+.Editorial h1,
+.Editorial h2,
+.Editorial h3,
+.Editorial h4 {
+  font-weight: normal;
+  line-height: var(--line-height-default);
+  margin: 2rem 0 0.5rem 0;
+}
+
+.Editorial h1 {
+  font-size: var(--font-size-h1);
+  line-height: var(--line-height-h1);
+}
+
+.Editorial h2 {
+  font-size: var(--font-size-h2);
+  line-height: var(--line-height-h2);
+}
+
+.Editorial h3 {
+  font-size: var(--font-size-h3);
+  line-height: var(--line-height-h3);
+}
+
+/* Text */
+
+.Editorial p {
+  font-size: var(--font-size-h4);
+  line-height: var(--line-height-h4);
+  margin: 0.5rem 0 1rem 0;
+}
+
+.Editorial strong {
+  font-family: var(--font-headings);
+}
+
+.Editorial a {
+  color: var(--colour-link);
+}
+
+.Editorial a:hover {
+  opacity: var(--opacity-hover);
+}
+
+/* Bulleted list styles */
+
+.Editorial ul,
+.Editorial ol {
+  margin: 0.5rem 0 1rem 0;
+}
+
+.Editorial li {
+  font-size: var(--font-size-h4);
+  line-height: var(--line-height-h4);
+}
+
+.Editorial ol li {
+  list-style: decimal;
+  margin-left: 1.5rem;
+  padding-left: 0.5rem;
+}
+
+.Editorial ul li {
+  list-style: disc;
+  margin-bottom: 0.25rem;
+  margin-left: 1.5rem;
+  position: relative;
+}
+
+/* Editorial - helper classes */
+
+.Editorial-scrollable {
+  max-height: 200px;
+  overflow-y: scroll;
+}
+
+.Editorial-small {
+  font-size: var(--font-size-small) !important;
+  line-height: var(--line-height-small) !important;
+}

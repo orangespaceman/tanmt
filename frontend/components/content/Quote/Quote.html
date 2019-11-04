@@ -1,0 +1,18 @@
+{% load thumbnail %}
+
+<div class="Quote
+  {% if data.background %}Quote--{{data.background}}{% endif %}
+  {% if data.align %}Quote--{{data.align}}{% endif %}
+">
+  {% if data.image and data.image.url %}
+    <img class="Quote-img" src="{% thumbnail data.image 1400x0 %}" alt="{{data.image_alt}}" />
+  {% endif %}
+  <div class="Quote-content">
+    <h3 class="Quote-text">
+      &ldquo;{{data.quote}}&rdquo;
+    </h3>
+    <p class="Quote-author">
+      {{data.author}}
+    </p>
+  </div>
+</div>

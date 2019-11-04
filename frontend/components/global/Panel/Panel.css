@@ -1,0 +1,101 @@
+/**
+ * @define Panel; use strict
+ */
+
+.Panel {
+  margin-bottom: var(--gutter-double);
+  position: relative;
+}
+
+/* Img */
+
+.Panel-imgWrap {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  text-align: center;
+}
+
+@media (--medium) {
+  .Panel-imgWrap {
+    overflow-y: visible;
+  }
+}
+
+.Panel-img {
+  height: inherit;
+  margin-bottom: var(--gutter);
+  max-height: 50vh;
+  max-width: inherit;
+}
+
+@media (--medium) {
+  .Panel-img {
+    max-height: inherit;
+    width: 100%;
+  }
+}
+
+/* Details */
+
+.Panel-details {
+  text-align: center;
+}
+
+@media (--medium) {
+  .Panel-details {
+    margin: 0 auto;
+    max-width: 75%;
+  }
+}
+
+.Panel-title {
+  color: var(--colour-grey-dark);
+  font-size: var(--font-size-h2);
+  margin-bottom: var(--gutter-half);
+}
+
+.Panel-description {
+  font-size: var(--font-size-h3);
+  margin-bottom: var(--gutter);
+}
+
+.Panel-publishedDate {
+  font-size: var(--font-size-default);
+  margin-bottom: var(--gutter);
+}
+
+.Panel-tag {
+  font-size: var(--font-size-default);
+  margin-bottom: var(--gutter);
+}
+
+/* tags */
+
+.Panel-tags {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.Panel-tag {
+  display: inline-block;
+  margin-left: var(--gutter);
+}
+
+.Panel-tag:first-child {
+  margin-left: 0;
+}
+
+.Panel-tagLink {
+  color: var(--colour-link);
+}
+
+.Panel-tagLink:hover {
+  opacity: var(--opacity-hover);
+}
+
+/* empty */
+
+.Panel-empty {
+  margin: var(--gutter) 0;
+}

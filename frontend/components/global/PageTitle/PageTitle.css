@@ -1,0 +1,26 @@
+/**
+ * @define PageTitle; use strict
+ */
+
+.PageTitle {
+  margin-top: var(--gutter-double);
+}
+
+@media (--medium) {
+  .PageTitle {
+    margin-top: calc(var(--gutter-triple) + 3px);
+    position: relative;
+  }
+}
+
+.PageTitle-title {
+  font-size: var(--font-size-h3);
+}
+
+@media (--medium) {
+  .PageTitle-title {
+    border-top: 6px solid var(--colour-grey-mid);
+    font-size: var(--font-size-h2);
+    padding-top: var(--gutter);
+  }
+}

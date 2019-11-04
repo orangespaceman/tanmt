@@ -1,0 +1,11 @@
+Django
+django_extensions
+django-anymail[mailgun]
+django-admin-ordering
+django-ckeditor
+django-cron
+django-environ
+django-nested-admin
+easy-thumbnails
+psycopg2-binary
+twitter

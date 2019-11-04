@@ -1,0 +1,57 @@
+/**
+ * @define TagList; use strict
+ */
+
+.TagList {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: var(--gutter-double);
+  margin-left: var(--negative-gutter);
+  margin-right: var(--negative-gutter);
+  position: relative;
+}
+
+.TagList-item {
+  flex-basis: 100%;
+  margin: var(--gutter) 0 var(--gutter-double) 0;
+}
+
+@media (--medium) {
+  .TagList-item {
+    flex-basis: 33.33%;
+  }
+}
+
+.TagList-link {
+  color: var(--colour-link);
+  display: block;
+  margin: 0 var(--gutter);
+  text-decoration: none;
+}
+
+.TagList-img {
+  margin-bottom: var(--gutter-half);
+  width: 100%;
+}
+
+.TagList-tag {
+  display: block;
+  font-size: var(--font-size-h3);
+  margin-bottom: var(--gutter-quarter);
+  text-decoration: underline;
+}
+
+.TagList-count {
+  font-size: var(--font-size-default);
+  font-style: normal;
+}
+
+.TagList-link:hover .TagList-tag,
+.TagList-link:hover .TagList-count {
+  opacity: var(--opacity-hover);
+}
+
+.TagList-itemEmpty {
+  flex-basis: 100%;
+  margin: var(--gutter);
+}

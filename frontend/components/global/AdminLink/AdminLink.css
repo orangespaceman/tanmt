@@ -1,0 +1,21 @@
+/**
+ * @define AdminLink; use strict
+ */
+
+.AdminLink {
+  background: var(--colour-grey-dark);
+  color: var(--colour-white);
+  display: inline-block;
+  font-size: var(--font-size-h4);
+  padding: 0.5rem 1rem;
+  position: fixed;
+  right: 0.5rem;
+  text-decoration: none;
+  top: 0.5rem;
+  z-index: 3;
+}
+
+.AdminLink:hover {
+  background: var(--colour-white);
+  color: var(--colour-grey-dark);
+}

@@ -1,0 +1,80 @@
+/**
+ * Site-wide variables
+ */
+
+:root {
+  /* stylelint-disable comment-empty-line-before */
+
+  /* fonts */
+
+  --font-headings: "amatic-sc-regular", sans-serif;
+  --font-body: "amatic-sc-regular", sans-serif;
+
+  --font-size-h1: 60px;
+  --font-size-h2: 48px;
+  --font-size-h3: 32px;
+  --font-size-h4: 24px;
+  --font-size-forms: 20px; /* avoid zoom in on iOS */
+  --font-size-default: 20px;
+  --font-size-small: 16px;
+
+  --line-height-h1: 64px;
+  --line-height-h2: 52px;
+  --line-height-h3: 36px;
+  --line-height-h4: 28px;
+  --line-height-default: 24px;
+  --line-height-small: 20px;
+
+  /* colours - definitions */
+
+  --colour-white: #fff;
+  --colour-black: #333;
+  --colour-grey-dark: #555;
+  --colour-grey-mid: #bbb;
+  --colour-grey-light: #eee;
+  --colour-grey-xlight: #efefef;
+
+  /* colours - usage */
+
+  --colour-text: var(--colour-grey-dark);
+  --colour-background: var(--colour-grey-light);
+  --colour-link: var(--colour-grey-dark);
+
+  /* opacity */
+
+  --opacity-hover: 0.7;
+
+  /* transitions */
+
+  --transition-time: 0.25s;
+
+  /* Buttons & Forms */
+
+  /* margins and spacing */
+
+  --gutter: var(--font-size-default);
+  --gutter-quarter: calc(var(--gutter) / 4);
+  --gutter-half: calc(var(--gutter) / 2);
+  --gutter-three-quarters: calc(var(--gutter) * 0.75);
+  --gutter-double: calc(var(--gutter) * 2);
+  --gutter-triple: calc(var(--gutter) * 3);
+  --gutter-quad: calc(var(--gutter) * 4);
+
+  --negative-gutter: calc(var(--gutter) * -1);
+  --negative-gutter-half: calc(var(--gutter-half) * -1);
+  --negative-gutter-double: calc(var(--gutter-double) * -1);
+  --border-width: 1px;
+
+  /* content widths */
+
+  --width-small: 30rem; /* 480px */
+  --width-medium: 48rem; /* 768px */
+  --width-large: 62.5rem; /* 1000px */
+  --width-full: 75rem; /* 1200px */
+}
+
+/* media queries */
+@custom-media --small (min-width: 30rem);
+@custom-media --medium (min-width: 48rem);
+@custom-media --large (min-width: 62.5rem);
+@custom-media --full (min-width: 75rem);

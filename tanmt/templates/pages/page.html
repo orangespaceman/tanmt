@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block meta %}
+  {% include '_partials/meta.html' with title=page.title %}
+{% endblock %}
+
+{% block main %}
+  {% include 'components/global/PageTitle/PageTitle.html' with title=page.title only %}
+  {% include 'components/page/Page/Page.html' with page=page breadcrumb=breadcrumb subnav=subnav components=components only %}
+{% endblock %}
