@@ -242,4 +242,4 @@ DATA_UPLOAD_MAX_NUMBER_FIELDS = 10240
 SITE_TITLE = 'The All New Magic Tortoise'
 SITE_DESCRIPTION = (
     'Comics and more from the brain (and hands) of The All New Magic Tortoise')
-SITE_SOCIAL = 'theallnewmagic'
+SITE_SOCIAL = 'TheAllNewMagic'
