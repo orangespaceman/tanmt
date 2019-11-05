@@ -19,7 +19,7 @@
       <div class="Wrap-outer">
         <div class="Wrap-inner">
 
-          {% include 'components/global/Header/Header.html' with header_pages=header_pages only %}
+          {% include 'components/global/Header/Header.html' with SITE_SOCIAL=SITE_SOCIAL header_pages=header_pages only %}
 
           <main class="Main">
             {% block main %}
@@ -27,7 +27,7 @@
           </main>
 
           <div class="Main-footer">
-            {% include 'components/global/Footer/Footer.html' with footer_pages=footer_pages only %}
+            {% include 'components/global/Footer/Footer.html' with SITE_SOCIAL=SITE_SOCIAL footer_pages=footer_pages only %}
           </div>
 
         </div>
