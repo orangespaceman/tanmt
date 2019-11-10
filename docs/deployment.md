@@ -39,7 +39,7 @@ How to deploy the app
 
 * Optional: manually upload any existing media files, into `/tanmt/media`
 
-* Manually create settings files - `/tanmt/tanmt/settings/production.py` - using the sample files in that directory
+* Manually create an `.env` file in the root, using the sample `.env.production.example` file
 
 * Collect static assets:
 

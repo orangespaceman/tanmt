@@ -75,6 +75,7 @@ source env/bin/activate
 Python dependencies are installed using `pip`. This project uses `pip-tools` to help manage dependencies.
 
 - Pip tools: https://github.com/jazzband/pip-tools
+- See: https://jamescooke.info/a-successful-pip-tools-workflow-for-managing-python-package-requirements.html
 
 Install pip-tools:
 
@@ -101,6 +102,63 @@ Then run `pip-sync` again:
 ```
 pip-sync local.txt
 ```
+
+#### Updating a dependency
+
+Remove the dependency from the relevant `.txt` file(s) and re-run `pip-sync`.
+
+If it doesn't work as expected, remove from the `.in` file, run `pip-sync` to update the `.txt` files, then re-add and re-run again.
+
+
+### Social media accounts
+
+The site can post new pictures to Twitter, Instagram and Facebook. To do this, accounts/apps need to be set up for both social networks. The relevant access details for these accounts should then be added into the config files.
+
+
+#### Twitter
+
+* [Register a new app](https://developer.twitter.com/) with the relevant twitter account - take a note of the four different keys listed below, and make sure the app has read and write access. (Give it read and write access before creating your access tokens so they share this access, to check see [here](https://twitter.com/settings/applications))
+
+
+#### Instagram
+
+Set up a new account and add the username and password to the `.env` file
+
+
+#### Facebook
+
+To post to Facebook, set up an [If This Then That account](https://ifttt.com/) to automatically post to a Facebook page when a new message is posted to Twitter.
+
+
+### Cron
+
+The site uses [Django-cron](http://django-cron.readthedocs.io/) to periodically post new content to the social media accounts above.
+
+In order to set this up, the following `crontab` should be set up on the server:
+
+```
+* * * * * ./tanmt-social-cron.sh
+```
+
+Create a file in the root: `nano ~/tanmt-social-cron.sh`
+
+```
+cd tanmt
+source env/bin/activate
+cd tanmt
+python manage.py runcrons --settings=tanmt.settings.production >> /home/tanmt/crons.log
+```
+
+Ensure this file is executable:
+
+```
+chmod -x tanmt-social-cron.sh
+```
+
+
+## CI
+
+A config for Circle CI has been set up to run linting and testing on every push to Github
 
 
 ## PostGres
