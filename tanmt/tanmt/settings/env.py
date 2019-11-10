@@ -74,8 +74,8 @@ if (env.str('INSTAGRAM_USERNAME', default='')
 EMAIL_BACKEND = env.str(
     'EMAIL_BACKEND', default='django.core.mail.backends.console.EmailBackend')
 
-if env.str('MAILGUN_API_KEY', default='') and env.str('MAILGUN_SENDER_DOMAIN',
-                                                      default=''):
+if (env.str('MAILGUN_API_KEY', default='')
+        and env.str('MAILGUN_SENDER_DOMAIN', default='')):
     ANYMAIL = {
         "MAILGUN_API_KEY": env.str("MAILGUN_API_KEY"),
         "MAILGUN_SENDER_DOMAIN": env.str("MAILGUN_SENDER_DOMAIN"),

@@ -12,6 +12,9 @@ urlpatterns = [
     path('admin/', tanmt_admin.urls),
     path('', include('pictures.urls')),
 
+    # offline
+    path('', include('offline.urls')),
+
     # third-party
     re_path(r'^_nested_admin/', include('nested_admin.urls')),
 

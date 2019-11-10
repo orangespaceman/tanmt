@@ -33,6 +33,7 @@ INSTALLED_APPS = [
 
     # SITE
     'error.apps.ErrorConfig',
+    'offline.apps.OfflineConfig',
     'components.apps.ComponentsConfig',
     'pages.apps.PagesConfig',
     'pictures.apps.PicturesConfig',
@@ -236,6 +237,8 @@ CKEDITOR_CONFIGS = {
 # Misc
 
 DATA_UPLOAD_MAX_NUMBER_FIELDS = 10240
+
+FILE_UPLOAD_PERMISSIONS = 0o644
 
 # Site
 

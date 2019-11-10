@@ -1,5 +1,5 @@
 var newWindowLinks = require("./site/new-window-links");
-// var header = require("../components/global/Header/Header");
+var offline = require("../components/global/Offline/Offline");
 
 newWindowLinks.init();
-// header.init();
+offline.init();
