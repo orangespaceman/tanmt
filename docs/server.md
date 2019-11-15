@@ -28,6 +28,8 @@
     - https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-18-04
 * HTTP/2
     - https://www.digitalocean.com/community/tutorials/how-to-set-up-nginx-with-http-2-support-on-ubuntu-18-04
+* Consider adding extra nginx config:
+    - https://github.com/h5bp/server-configs-nginx
 
 
 ## Nginx configs
