@@ -19,7 +19,7 @@ django-environ==0.4.5
 django-extensions==2.2.3
 django-js-asset==1.2.2
 django-nested-admin==3.2.4
-django==2.2.6
+django==2.2.8
 easy-thumbnails==2.6
 entrypoints==0.3          # via flake8
 factory-boy==2.12.0       # via factory-djoy
@@ -27,10 +27,9 @@ factory-djoy==2.1.1
 faker==2.0.3              # via factory-boy
 flake8==3.7.8
 idna==2.8
-importlib-metadata==0.23  # via pluggy, pytest
 isort==4.3.21
 mccabe==0.6.1             # via flake8
-more-itertools==7.2.0     # via pytest, zipp
+more-itertools==7.2.0     # via pytest
 packaging==19.2           # via pytest
 pillow==6.2.0
 pluggy==0.13.0            # via pytest
@@ -53,4 +52,3 @@ twitter==1.18.0
 urllib3==1.25.6
 wcwidth==0.1.7            # via pytest
 yapf==0.28.0
-zipp==0.6.0               # via importlib-metadata
