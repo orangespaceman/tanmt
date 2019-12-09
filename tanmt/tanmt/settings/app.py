@@ -8,7 +8,7 @@ import os
 
 import environ
 
-from ..helpers.logging import skip_404s
+from ..helpers.logging import skip_404s, skip_during_testing
 
 # app roots
 django_root = environ.Path(__file__) - 3
@@ -90,6 +90,10 @@ LOGGING = {
             '()': 'django.utils.log.CallbackFilter',
             'callback': skip_404s,
         },
+        'ignore_during_testing': {
+            '()': 'django.utils.log.CallbackFilter',
+            'callback': skip_during_testing,
+        },
     },
     'formatters': {
         'save_to_log_file': {
@@ -114,20 +118,27 @@ LOGGING = {
             'formatter': 'django_server',
         },
         'save_to_log_file': {
-            'level': 'WARNING',
+            'level':
+            'WARNING',
             'filters': [
                 'ignore_404',
+                'ignore_during_testing',
                 'require_debug_false',
             ],
-            'class': 'logging.handlers.RotatingFileHandler',
-            'filename': os.path.join(app_root.path('logs'), 'django.log'),
-            'maxBytes': 1024 * 1024 * 15,  # 15MB
-            'backupCount': 10,
-            'formatter': 'save_to_log_file',
+            'class':
+            'logging.handlers.RotatingFileHandler',
+            'filename':
+            os.path.join(app_root.path('logs'), 'django.log'),
+            'maxBytes':
+            1024 * 1024 * 15,  # 15MB
+            'backupCount':
+            10,
+            'formatter':
+            'save_to_log_file',
         },
         'mail_admins': {
             'level': 'ERROR',
-            'filters': ['require_debug_false'],
+            'filters': ['require_debug_false', 'ignore_during_testing'],
             'class': 'django.utils.log.AdminEmailHandler',
         }
     },
