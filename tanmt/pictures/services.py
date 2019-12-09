@@ -2,9 +2,7 @@ import logging
 import os
 
 from django.conf import settings
-from django.urls import reverse
 from django.utils import timezone
-from easy_thumbnails.files import get_thumbnailer
 from twitter import OAuth, Twitter
 
 from .models import Picture
@@ -28,9 +26,9 @@ class SocialService():
 
             model.save()
 
-            url = self.get_url(model)
-            tags = self.get_tags(model)
-            image = self.get_image(model)
+            url = model.get_url()
+            tags = model.get_tags()
+            image = model.get_image()
 
             self.post_to_twitter(model, image.path, tags, url)
             self.post_to_instagram(model, image.path, tags)
@@ -38,35 +36,21 @@ class SocialService():
     def repost_twitter(self):
         model = Picture.published_pictures.first()
         if model:
-            url = self.get_url(model)
-            tags = self.get_tags(model)
-            image = self.get_image(model)
+            url = model.get_url()
+            tags = model.get_tags()
+            image = model.get_image()
             self.post_to_twitter(model, image.path, tags, url)
 
     def repost_instagram(self):
         model = Picture.published_pictures.first()
         if model:
-            tags = self.get_tags(model)
-            image = self.get_image(model)
+            # update timestamp (for JSON)
+            model.save()
+
+            # try direct republish if Instagram settings are present
+            tags = model.get_tags()
+            image = model.get_image()
             self.post_to_instagram(model, image.path, tags)
-
-    def get_url(self, model):
-        return reverse('picture-slug',
-                       kwargs={
-                           'id': model.published_id,
-                           'slug': model.slug,
-                       })
-
-    def get_tags(self, model):
-        return " ".join(f"#{tag.slug}" for tag in model.tags.all())
-
-    def get_image(self, model):
-        # generate a smaller image to avoid Twitter 5mb file limit
-        thumbnailer = get_thumbnailer(model.image.image)
-        thumbnail_options = {'size': (2000, 2000)}
-        return thumbnailer.get_thumbnail(thumbnail_options,
-                                         save=True,
-                                         generate=True)
 
     def post_to_twitter(self, model, image_path, tags, url):
         if hasattr(settings, 'TWITTER'):

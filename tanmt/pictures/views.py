@@ -1,5 +1,7 @@
+from django.conf import settings
+from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Count, Prefetch, Q
-from django.http import Http404
+from django.http import Http404, JsonResponse
 from django.shortcuts import redirect
 from django.views import generic
 
@@ -88,6 +90,30 @@ class PictureRandomView(generic.View):
         return redirect('picture-slug',
                         id=picture.published_id,
                         slug=picture.slug)
+
+
+class PictureLatestView(generic.View):
+    http_method_names = ['get']
+
+    def get(self, request, *args, **kwargs):
+        try:
+            picture = Picture.published_pictures.first()
+        except ObjectDoesNotExist:
+            data = {
+                "error": "No pictures published",
+            }
+            return JsonResponse(data, status=400)
+
+        data = {
+            'title': picture.title,
+            'description': picture.description,
+            'url': f"{settings.SITE_URL}{picture.get_url()}",
+            'image': f"{settings.SITE_URL}{picture.get_image().url}",
+            'tags': picture.get_tags(),
+            'last_modified': picture.modified_date.timestamp()
+        }
+
+        return JsonResponse(data)
 
 
 class TagsView(generic.TemplateView):

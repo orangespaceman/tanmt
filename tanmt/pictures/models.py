@@ -1,7 +1,9 @@
 import re
 
 from django.db import models
+from django.urls import reverse
 from django_extensions.db.fields import AutoSlugField
+from easy_thumbnails.files import get_thumbnailer
 
 
 class Tag(models.Model):
@@ -62,6 +64,28 @@ class Picture(models.Model):
     # Managers
     objects = models.Manager()
     published_pictures = PublishedPictureManager()
+
+    def get_url(self):
+        return reverse(
+            'picture-slug',
+            kwargs={
+                'id': self.published_id,
+                'slug': self.slug,
+            },
+        )
+
+    def get_tags(self):
+        return " ".join(f"#{tag.slug}" for tag in self.tags.all())
+
+    def get_image(self):
+        # generate a smaller image to avoid Twitter 5mb file limit
+        thumbnailer = get_thumbnailer(self.image.image)
+        thumbnail_options = {'size': (2000, 2000)}
+        return thumbnailer.get_thumbnail(
+            thumbnail_options,
+            save=True,
+            generate=True,
+        )
 
     # Metadata
     class Meta:

@@ -32,7 +32,7 @@ class TestSocialService(TestCase):
 
     @patch('pictures.services.SocialService.post_to_instagram')
     @patch('pictures.services.SocialService.post_to_twitter')
-    @patch('pictures.services.SocialService.get_image')
+    @patch('pictures.models.Picture.get_image')
     def test_post(self, get_image_mock, post_to_twitter_mock,
                   post_to_instagram_mock):
         """
@@ -45,7 +45,7 @@ class TestSocialService(TestCase):
         social_service = SocialService()
         social_service.post()
 
-        get_image_mock.assert_called_once_with(next_picture)
+        get_image_mock.assert_called_once()
 
         post_to_twitter_mock.assert_called_once_with(
             next_picture,
@@ -60,7 +60,7 @@ class TestSocialService(TestCase):
         )
 
     @patch('pictures.services.SocialService.post_to_twitter')
-    @patch('pictures.services.SocialService.get_image')
+    @patch('pictures.models.Picture.get_image')
     def test_repost_twitter(self, get_image_mock, post_to_twitter_mock):
         """
         Check social service repost works as expected
@@ -72,7 +72,7 @@ class TestSocialService(TestCase):
         social_service = SocialService()
         social_service.repost_twitter()
 
-        get_image_mock.assert_called_once_with(current_picture)
+        get_image_mock.assert_called_once()
 
         post_to_twitter_mock.assert_called_once_with(
             current_picture,
@@ -82,7 +82,7 @@ class TestSocialService(TestCase):
         )
 
     @patch('pictures.services.SocialService.post_to_instagram')
-    @patch('pictures.services.SocialService.get_image')
+    @patch('pictures.models.Picture.get_image')
     def test_repost_instagram(self, get_image_mock, post_to_instagram_mock):
         """
         Check social service repost works as expected
@@ -94,7 +94,7 @@ class TestSocialService(TestCase):
         social_service = SocialService()
         social_service.repost_instagram()
 
-        get_image_mock.assert_called_once_with(current_picture)
+        get_image_mock.assert_called_once()
 
         post_to_instagram_mock.assert_called_once_with(
             current_picture,

@@ -111,7 +111,8 @@ class PictureAdmin(OrderableAdmin, nested_admin.NestedModelAdmin):
         if model:
             social_service = SocialService()
             social_service.repost_instagram()
-            self.message_user(request, "Picture republished to Instagram")
+            self.message_user(request,
+                              "Picture queued to be republished to Instagram")
         else:
             self.message_user(request,
                               "No pictures to publish",
