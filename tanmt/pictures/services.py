@@ -20,10 +20,16 @@ class SocialService():
         if model:
             model.published_date = timezone.now()
             previous_picture = Picture.published_pictures.first()
-            if previous_picture:
-                model.published_id = previous_picture.published_id + 1
-            else:
-                model.published_id = 1
+
+            # leave breaking error in to test logging
+            model.published_id = previous_picture.published_id + 1
+
+            # comment fix for now
+            # if previous_picture:
+            #     model.published_id = previous_picture.published_id + 1
+            # else:
+            #     model.published_id = 1
+
             model.save()
 
             url = self.get_url(model)
