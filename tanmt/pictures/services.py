@@ -104,6 +104,7 @@ class SocialService():
                        f"'{image_path}' '{model.title}' '{tags}' "
                        f"'{settings.INSTAGRAM['username']}' "
                        f"'{settings.INSTAGRAM['password']}'")
+                logger.info(f"Posting to instagram: {cmd}")
 
                 output = os.popen(cmd).read()
                 if "error" in output:
