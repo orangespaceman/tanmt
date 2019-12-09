@@ -12,11 +12,9 @@ class PageView(generic.TemplateView):
     def get_context_data(self, **kwargs):
         context = super(PageView, self).get_context_data(**kwargs)
 
-        slug = f"/{kwargs['slug']}"
-        if not slug.endswith('/'):
-            slug = f"{slug}/"
+        print('page slug', kwargs['slug'])
 
-        page = get_object_or_404(Page, slug=slug)
+        page = get_object_or_404(Page, slug=kwargs['slug'])
         context['page'] = page
         context['page_title'] = page.title
         context['components'] = Component.objects.select_related(

@@ -65,28 +65,14 @@ class ComponentAdmin(nested_admin.NestedStackedInline):
 
 class PageAdmin(nested_admin.NestedModelAdmin):
     list_display = [
-        'get_title',
+        'title',
         'slug',
-        'parent',
         'display_in_header',
         'display_in_footer',
     ]
-    list_select_related = ['parent']
-    autocomplete_fields = ['parent']
-    search_fields = ['title', 'parent__title']
+    search_fields = ['title']
     ordering = ['slug']
     inlines = [ComponentAdmin]
-
-    def get_title(self, obj):
-        if obj.parent and obj.parent.parent:
-            title = "⤚⤍ {obj.title}"
-        elif obj.parent:
-            title = "↣ {obj.title}"
-        else:
-            title = obj.title
-        return title
-
-    get_title.short_description = 'title'
 
     # if adding, hide readonly fixture detail field
     def get_readonly_fields(self, request, obj):
@@ -127,10 +113,6 @@ class TopLevelPageOrderingAdmin(OrderableAdmin, nested_admin.NestedModelAdmin):
 
     def has_delete_permission(self, request, obj=None):
         return False
-
-    def get_queryset(self, request):
-        qs = super().get_queryset(request)
-        return qs.filter(parent=None)
 
 
 class TopLevelPage(Page):

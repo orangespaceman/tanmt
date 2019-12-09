@@ -1,9 +1,7 @@
 import logging
 
 from django.contrib.auth.models import User
-from django.core.exceptions import ValidationError
 from django.db import models
-from django.template.defaultfilters import slugify
 from django.urls import reverse
 from django_extensions.db.fields import AutoSlugField
 
@@ -19,11 +17,9 @@ from components.models import (
 logger = logging.getLogger(__name__)
 
 
-def generate_slug(instance):
-    if instance.parent:
-        return f"{instance.parent.slug}{slugify(instance.title)}/"
-    else:
-        return f"/{slugify(instance.title)}/"
+def generate_slug(str):
+    # keep for legacy reasons - used in migrations
+    return str
 
 
 class Page(models.Model):
@@ -32,20 +28,10 @@ class Page(models.Model):
     display_in_footer = models.BooleanField(
         default=False, help_text='(Applicable to top-level pages only)')
     title = models.CharField(max_length=200)
-    parent = models.ForeignKey(
-        'self',
-        related_name='children',
-        on_delete=models.CASCADE,
-        blank=True,
-        null=True,
-        help_text=(
-            'Select section of the site this page should appear in, '
-            'leave blank if this page shouldn\'t appear under any section'))
     slug = AutoSlugField(help_text='This will be the URL for this page',
                          unique=True,
                          overwrite=True,
-                         slugify_function=lambda value: value,
-                         populate_from=generate_slug)
+                         populate_from='title')
     created_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)
     author = models.ForeignKey(
@@ -71,24 +57,8 @@ class Page(models.Model):
     def get_slug(self):
         return self.slug.lstrip('/').rstrip('/')
 
-    # disallow selecting self as parent
-    def clean(self):
-        if self.parent == self:
-            error = "A page can't be its own parent"
-            logger.warning(error)
-            raise ValidationError(error)
-
-    # display parent hierarchy in admin dropdown list
     def __str__(self):
-        hierarchy = []
-        self.generate_hierarchy(self, hierarchy)
-        title = ' ↣ '.join(hierarchy)
-        return title
-
-    def generate_hierarchy(self, instance, hierarchy):
-        hierarchy.insert(0, instance.title)
-        if instance.parent:
-            self.generate_hierarchy(instance.parent, hierarchy)
+        return self.title
 
 
 class Component(models.Model):
