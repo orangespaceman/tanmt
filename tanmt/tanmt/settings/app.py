@@ -146,17 +146,16 @@ LOGGING = {
         'django': {
             'handlers': ['console', 'save_to_log_file', 'mail_admins'],
             'level': 'INFO',
-            'propagate': True,
         },
         'django.server': {
             'handlers': ['django_server', 'save_to_log_file', 'mail_admins'],
             'level': 'INFO',
-            'propagate': True,
+            'propagate': False,
         },
         'django.request': {
             'handlers': ['django_server', 'save_to_log_file', 'mail_admins'],
             'level': 'INFO',
-            'propagate': True,
+            'propagate': False,
         },
     },
     'root': {
