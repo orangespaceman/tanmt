@@ -125,6 +125,7 @@ class TagView(generic.TemplateView):
         pictures = Picture.published_pictures.filter(tags__in=[tag.pk], ).all()
 
         context['pictures'] = pictures
+        context['tag'] = tag
         context['title'] = (f"#{tag.slug} ({pictures.count()} "
                             f"picture{'' if pictures.count() == 1 else 's'})")
 

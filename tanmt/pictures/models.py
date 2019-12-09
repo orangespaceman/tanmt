@@ -6,6 +6,10 @@ from django_extensions.db.fields import AutoSlugField
 
 class Tag(models.Model):
     tag = models.CharField(max_length=200)
+    description = models.TextField(
+        blank=True,
+        null=True,
+    )
     slug = AutoSlugField(populate_from='tag',
                          help_text='This is used as the URL for this tag',
                          max_length=200)

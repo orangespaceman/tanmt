@@ -24,3 +24,9 @@
     padding-top: var(--gutter);
   }
 }
+
+.PageTitle-subtitle {
+  font-size: var(--font-size-h4);
+  font-weight: normal;
+  padding: var(--gutter-half) 0;
+}
