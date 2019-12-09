@@ -104,7 +104,7 @@ class TagsView(generic.TemplateView):
         ))
         tags = tags.filter(picture_count__gt=0).order_by('-picture_count')
         context['tags'] = tags
-        context['title'] = "Tags"
+        context['title'] = "Collections"
 
         return context
 
@@ -120,7 +120,7 @@ class TagView(generic.TemplateView):
         try:
             tag = Tag.objects.filter(slug=slug).get()
         except Tag.DoesNotExist:
-            raise Http404("Tag does not exist")
+            raise Http404("Collection does not exist")
 
         pictures = Picture.published_pictures.filter(tags__in=[tag.pk], ).all()
 

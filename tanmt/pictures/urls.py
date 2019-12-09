@@ -11,6 +11,8 @@ urlpatterns = [
     path('picture/random/',
          views.PictureRandomView.as_view(),
          name='picture-random'),
-    path('tags/', views.TagsView.as_view(), name='tags-list'),
-    path('tags/<slug:tag>/', views.TagView.as_view(), name='tags-detail'),
+    path('collections/', views.TagsView.as_view(), name='tags-list'),
+    path('collections/<slug:tag>/',
+         views.TagView.as_view(),
+         name='tags-detail'),
 ]
