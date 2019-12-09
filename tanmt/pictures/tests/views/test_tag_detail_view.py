@@ -22,7 +22,7 @@ class TestTagDetailView(TestCase):
         tag = TagFactory(tag='lorem')
         url = reverse('tags-detail', kwargs={'tag': tag.slug})
 
-        self.assertEqual(url, f"/tags/{tag.slug}/")
+        self.assertEqual(url, f"/collections/{tag.slug}/")
 
     def test_get(self):
         """"

@@ -10,8 +10,7 @@ class TestContextProcessorPages(TestCase):
         """
         Return top level pages that should be in the header
         """
-        top_level_page = PageFactory()
-        PageFactory(display_in_header=True, parent=top_level_page)
+        PageFactory()
         header_page = PageFactory(display_in_header=True)
 
         context = header_pages({})
@@ -29,8 +28,7 @@ class TestContextProcessorPages(TestCase):
         """
         Return top level pages that should be in the footer
         """
-        top_level_page = PageFactory()
-        PageFactory(display_in_footer=True, parent=top_level_page)
+        PageFactory()
         footer_page = PageFactory(display_in_footer=True)
 
         context = footer_pages({})

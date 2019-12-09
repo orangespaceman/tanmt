@@ -21,7 +21,7 @@ class TestTagListView(TestCase):
         """
         url = reverse('tags-list')
 
-        self.assertEqual(url, "/tags/")
+        self.assertEqual(url, "/collections/")
 
     def test_get(self):
         """"
