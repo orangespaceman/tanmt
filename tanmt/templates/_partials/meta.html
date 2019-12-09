@@ -7,14 +7,14 @@
 <meta name="description" content="{% if description %}{{description}}{% else %}{{SITE_DESCRIPTION}}{% endif %}">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@{{SITE_SOCIAL}}">
 
-<meta property="og:url" content="{{SITE_URL}}">
+<meta property="og:url" content="{{SITE_URL}}{{ request.get_full_path }}">
 <meta property="og:title" content="{% if title %}{{title}} | {% endif %}{{SITE_TITLE}}">
 <meta property="og:description" content="{% if description %}{{description}}{% else %}{{SITE_DESCRIPTION}}{% endif %}">
-<meta property="og:image" content="{% if image %}{{SITE_URL}}{{image}}{% else %}{{SITE_URL}}{% static 'img/favicon.png' %}{% endif %}">
+<meta property="og:image" content="{{SITE_URL}}{% static 'img/social-share.png' %}">
 
 <link rel="stylesheet" href="{% static 'css/site.css' %}">
-
+<link rel="canonical" href="{{SITE_URL}}{{ request.get_full_path }}">
 <link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}"/>
