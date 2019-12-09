@@ -18,9 +18,12 @@ class SocialService():
             published_date__isnull=True).order_by('order')[:1].first()
 
         if model:
-            previous_picture = Picture.published_pictures.first()
             model.published_date = timezone.now()
-            model.published_id = previous_picture.published_id + 1
+            previous_picture = Picture.published_pictures.first()
+            if previous_picture:
+                model.published_id = previous_picture.published_id + 1
+            else:
+                model.published_id = 1
             model.save()
 
             url = self.get_url(model)
