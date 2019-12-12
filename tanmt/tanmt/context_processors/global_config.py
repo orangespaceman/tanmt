@@ -15,4 +15,7 @@ def global_config(request):
     if hasattr(settings, 'ANALYTICS'):
         config['ANALYTICS'] = settings.ANALYTICS
 
+    if hasattr(settings, 'USER_DOC'):
+        config['USER_DOC'] = settings.USER_DOC
+
     return config

@@ -50,6 +50,10 @@ SERVER_EMAIL = env.str('SERVER_EMAIL', default='')
 if env.str('ANALYTICS', default=''):
     ANALYTICS = env.str('ANALYTICS')
 
+# Add user manual doc link to admin login page
+if env.str('USER_DOC', default=''):
+    USER_DOC = env.str('USER_DOC')
+
 # Twitter
 if (env.str('TWITTER_CONSUMER_KEY', default='')
         and env.str('TWITTER_SECRET_KEY', default='')

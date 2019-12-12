@@ -3,8 +3,9 @@
 
   // CSS/JS Lint
   "eslint.enable": true,
-  "stylelint.enable": true,
   "css.validate": true,
+  "stylelint.enable": true,
+  "stylelint.autoFixOnSave": true,
 
   // Prettier - enable per-language
   "[javascript]": {

@@ -1,0 +1,9 @@
+{% extends 'admin/login.html' %}
+{% load static %}
+
+{% block content %}
+{% if USER_DOC %}
+  <p><a href="{{USER_DOC}}" target="_blank"><em>User manual Google Doc (opens in a new tab) &#10697;</em></a></p>
+{% endif %}
+{{ block.super }}
+{% endblock %}
