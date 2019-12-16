@@ -14,6 +14,8 @@ class Tag(models.Model):
     )
     slug = AutoSlugField(populate_from='tag',
                          help_text='This is used as the URL for this tag',
+                         unique=True,
+                         overwrite=True,
                          max_length=200)
 
     def slugify_function(self, content):
