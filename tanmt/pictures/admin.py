@@ -8,8 +8,13 @@ from easy_thumbnails.files import get_thumbnailer
 
 from tanmt.admin import tanmt_admin
 
-from .models import Image, Picture, Tag
+from .models import GlobalTags, Image, Picture, Tag
 from .services import SocialService
+
+
+class GlobalTagsAdmin(admin.ModelAdmin):
+    def has_add_permission(self, *args, **kwargs):
+        return not GlobalTags.objects.exists()
 
 
 class TagAdmin(admin.ModelAdmin):
@@ -67,7 +72,7 @@ class PictureAdmin(OrderableAdmin, nested_admin.NestedModelAdmin):
     def get_tags(self, obj):
         return ', '.join(tag.tag for tag in obj.tags.all())
 
-    get_tags.short_description = 'tags'
+    get_tags.short_description = 'categories'
 
     def get_urls(self):
         urls = super().get_urls()
@@ -123,3 +128,4 @@ class PictureAdmin(OrderableAdmin, nested_admin.NestedModelAdmin):
 
 tanmt_admin.register(Picture, PictureAdmin)
 tanmt_admin.register(Tag, TagAdmin)
+tanmt_admin.register(GlobalTags, GlobalTagsAdmin)

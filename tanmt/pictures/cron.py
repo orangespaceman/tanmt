@@ -16,10 +16,10 @@ class SocialCronPost(CronJobBase):
     code = 'tanmt.pictures.social_cron_post'
 
     def do(self):
-        # if timezone.localtime(timezone.now()).weekday() == 4:  # 4 == Friday
-        if timezone.localtime(timezone.now()).weekday() < 7:  # every day 4 now
-            logger.info('Friday, running SocialCronPost cron')
+        today = timezone.localtime(timezone.now()).weekday()
+        if today == 1 or today == 4:  # 1 == Tuesday, 4 == Friday
+            logger.info('Tuesday/Friday, running SocialCronPost cron')
             social_service = SocialService()
             social_service.post()
         else:
-            logger.info('Not Friday, skipping SocialCronPost cron')
+            logger.info('Not Tuesday/Friday, skipping SocialCronPost cron')

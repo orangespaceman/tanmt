@@ -2,6 +2,7 @@ import logging
 import os
 
 from django.conf import settings
+from django.template.defaultfilters import truncatechars
 from django.utils import timezone
 from twitter import OAuth, Twitter
 
@@ -57,6 +58,7 @@ class SocialService():
             try:
                 message = (f"{model.title}\n\n"
                            f"{settings.SITE_URL}{url}\n\n{tags}")
+                message = truncatechars(message, 260)
 
                 with open(image_path, "rb") as imagefile:
                     imagedata = imagefile.read()
