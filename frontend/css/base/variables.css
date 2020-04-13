@@ -3,6 +3,7 @@
  */
 
 :root {
+
   /* stylelint-disable comment-empty-line-before */
 
   /* fonts */
@@ -11,11 +12,11 @@
   --font-body: "amatic-sc-regular", sans-serif;
 
   --font-size-h1: 60px;
-  --font-size-h2: 48px;
-  --font-size-h3: 32px;
-  --font-size-h4: 24px;
-  --font-size-forms: 20px; /* avoid zoom in on iOS */
-  --font-size-default: 20px;
+  --font-size-h2: 44px;
+  --font-size-h3: 28px;
+  --font-size-h4: 22px;
+  --font-size-forms: 18px;
+  --font-size-default: 18px;
   --font-size-small: 16px;
 
   --line-height-h1: 64px;
