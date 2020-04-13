@@ -3,15 +3,9 @@
  */
 
 .Header {
-  padding: var(--gutter-triple) 0 var(--gutter-half) 0;
+  padding: var(--gutter-triple) 0 var(--gutter-double) 0;
   position: relative;
   text-align: center;
-}
-
-@media (--small) {
-  .Header {
-    padding-bottom: var(--gutter-double);
-  }
 }
 
 .Header-socialList {
@@ -25,14 +19,18 @@
 .Header-link {
   color: var(--colour-grey-dark);
   display: block;
-  font-size: var(--font-size-h3);
-  margin-bottom: var(--gutter-half);
+  font-size: var(--font-size-h2);
+  margin-bottom: var(--gutter);
+  margin-top: var(--gutter-half);
+  padding-left: var(--gutter-double);
+  padding-right: var(--gutter-double);
   text-decoration: none;
 }
 
 @media (--small) {
   .Header-link {
     font-size: var(--font-size-h2);
+    padding: 0;
   }
 }
 
