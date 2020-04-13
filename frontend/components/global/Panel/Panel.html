@@ -7,8 +7,13 @@
       {% include 'components/global/TopBeast/TopBeast.html' %}
   </div>
 
-  <div class="Panel-imgWrap">
-    <img class="Panel-img" src="{% thumbnail picture.image.image 2000x0 %}" alt="{{ picture.title }}" />
+  <div class="Panel-imgContainer">
+    <div class="Panel-imgWrap">
+      <img class="Panel-img" src="{% thumbnail picture.image.image 2000x0 %}" alt="{{ picture.title }}" />
+    </div>
+    <p class="Panel-swipeHint">
+      ← Swipe picture
+    </p>
   </div>
 
   <div class="Panel-details">

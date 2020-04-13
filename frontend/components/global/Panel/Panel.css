@@ -21,6 +21,29 @@
   }
 }
 
+.Panel-imgContainer {
+  margin-bottom: var(--gutter-double);
+  position: relative;
+}
+
+@media (--medium) {
+  .Panel-imgContainer {
+    margin-bottom: 0;
+  }
+}
+
+.Panel-swipeHint {
+  bottom: var(--negative-gutter);
+  left: 0;
+  position: absolute;
+}
+
+@media (--medium) {
+  .Panel-swipeHint {
+    display: none;
+  }
+}
+
 .Panel-img {
   height: inherit;
   margin-bottom: var(--gutter);
