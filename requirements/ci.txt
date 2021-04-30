@@ -27,7 +27,6 @@ factory-djoy==2.1.1
 faker==2.0.3
 flake8==3.7.8
 idna==2.8
-importlib-metadata==0.23
 isort==4.3.21
 mccabe==0.6.1
 more-itertools==7.2.0
@@ -50,7 +49,6 @@ six==1.12.0
 sqlparse==0.3.0
 text-unidecode==1.3
 twitter==1.18.0
-urllib3==1.25.6
+urllib3==1.25.8
 wcwidth==0.1.7
 yapf==0.28.0
-zipp==0.6.0
