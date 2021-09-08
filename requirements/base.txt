@@ -4,26 +4,60 @@
 #
 #    pip-compile --output-file=base.txt base.in
 #
-certifi==2019.9.11        # via requests
-chardet==3.0.4            # via requests
-django-admin-ordering==0.11.0
-django-anymail[mailgun]==7.0.0
-django-ckeditor==5.7.1
-django-common-helpers==0.9.2  # via django-cron
-django-cron==0.5.1
-django-environ==0.4.5
-django-extensions==2.2.3
-django-js-asset==1.2.2    # via django-admin-ordering, django-ckeditor
-django-nested-admin==3.2.4
+certifi==2019.9.11
+    # via requests
+chardet==3.0.4
+    # via requests
 django==2.2.6
+    # via
+    #   -r base.in
+    #   django-anymail
+    #   django-common-helpers
+    #   django-cron
+    #   easy-thumbnails
+django-admin-ordering==0.11.0
+    # via -r base.in
+django-anymail[mailgun]==7.0.0
+    # via -r base.in
+django-ckeditor==5.7.1
+    # via -r base.in
+django-common-helpers==0.9.2
+    # via django-cron
+django-cron==0.5.1
+    # via -r base.in
+django-environ==0.4.5
+    # via -r base.in
+django-extensions==2.2.3
+    # via -r base.in
+django-js-asset==1.2.2
+    # via
+    #   django-admin-ordering
+    #   django-ckeditor
+django-nested-admin==3.2.4
+    # via -r base.in
 easy-thumbnails==2.6
-idna==2.8                 # via requests
-pillow==6.2.0             # via easy-thumbnails
+    # via -r base.in
+idna==2.8
+    # via requests
+pillow==8.3.2
+    # via easy-thumbnails
 psycopg2-binary==2.8.3
-python-monkey-business==1.0.0  # via django-nested-admin
-pytz==2019.3              # via django
-requests==2.22.0          # via django-anymail
-six==1.12.0               # via django-anymail, django-extensions, django-nested-admin, python-monkey-business
-sqlparse==0.3.0           # via django
+    # via -r base.in
+python-monkey-business==1.0.0
+    # via django-nested-admin
+pytz==2019.3
+    # via django
+requests==2.22.0
+    # via django-anymail
+six==1.12.0
+    # via
+    #   django-anymail
+    #   django-extensions
+    #   django-nested-admin
+    #   python-monkey-business
+sqlparse==0.3.0
+    # via django
 twitter==1.18.0
-urllib3==1.25.6           # via requests
+    # via -r base.in
+urllib3==1.25.6
+    # via requests
