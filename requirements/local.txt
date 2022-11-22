@@ -4,65 +4,207 @@
 #
 #    pip-compile --output-file=local.txt local.in
 #
-aspy.refactor-imports==1.1.0
-aspy.yaml==1.3.0          # via pre-commit
+aspy-refactor-imports==1.1.0
+    # via
+    #   -r test.txt
+    #   seed-isort-config
+aspy-yaml==1.3.0
+    # via pre-commit
 atomicwrites==1.3.0
+    # via
+    #   -r test.txt
+    #   pytest
 attrs==19.3.0
+    # via
+    #   -r test.txt
+    #   pytest
 cached-property==1.5.1
+    # via
+    #   -r test.txt
+    #   aspy-refactor-imports
 certifi==2019.9.11
-cfgv==2.0.1               # via pre-commit
+    # via
+    #   -r test.txt
+    #   requests
+cfgv==2.0.1
+    # via pre-commit
 chardet==3.0.4
-click==7.0                # via pip-tools
-django-admin-ordering==0.11.0
-django-anymail[mailgun]==7.0.0
-django-ckeditor==5.7.1
-django-common-helpers==0.9.2
-django-cron==0.5.1
-django-debug-toolbar==2.0
-django-environ==0.4.5
-django-extensions==2.2.3
-django-js-asset==1.2.2
-django-nested-admin==3.2.4
+    # via
+    #   -r test.txt
+    #   requests
+click==7.0
+    # via pip-tools
 django==2.2.6
+    # via
+    #   -r test.txt
+    #   django-anymail
+    #   django-common-helpers
+    #   django-cron
+    #   django-debug-toolbar
+    #   easy-thumbnails
+    #   factory-djoy
+django-admin-ordering==0.11.0
+    # via -r test.txt
+django-anymail[mailgun]==7.0.0
+    # via -r test.txt
+django-ckeditor==5.7.1
+    # via -r test.txt
+django-common-helpers==0.9.2
+    # via
+    #   -r test.txt
+    #   django-cron
+django-cron==0.5.1
+    # via -r test.txt
+django-debug-toolbar==2.0
+    # via -r local.in
+django-environ==0.4.5
+    # via -r test.txt
+django-extensions==2.2.3
+    # via -r test.txt
+django-js-asset==1.2.2
+    # via
+    #   -r test.txt
+    #   django-admin-ordering
+    #   django-ckeditor
+django-nested-admin==3.2.4
+    # via -r test.txt
 easy-thumbnails==2.6
+    # via -r test.txt
 entrypoints==0.3
+    # via
+    #   -r test.txt
+    #   flake8
 factory-boy==2.12.0
+    # via
+    #   -r test.txt
+    #   factory-djoy
 factory-djoy==2.1.1
+    # via -r test.txt
 faker==2.0.3
+    # via
+    #   -r test.txt
+    #   factory-boy
 flake8==3.7.8
-identify==1.4.7           # via pre-commit
+    # via -r test.txt
+identify==1.4.7
+    # via pre-commit
 idna==2.8
+    # via
+    #   -r test.txt
+    #   requests
 importlib-metadata==0.23
-importlib-resources==1.0.2  # via pre-commit
+    # via pre-commit
 isort==4.3.21
+    # via -r test.txt
 mccabe==0.6.1
+    # via
+    #   -r test.txt
+    #   flake8
 more-itertools==7.2.0
-nodeenv==1.3.3            # via pre-commit
+    # via
+    #   -r test.txt
+    #   pytest
+nodeenv==1.3.3
+    # via pre-commit
 packaging==19.2
-pillow==6.2.0
+    # via
+    #   -r test.txt
+    #   pytest
+pillow==9.3.0
+    # via
+    #   -r test.txt
+    #   easy-thumbnails
 pip-tools==4.2.0
+    # via -r local.in
 pluggy==0.13.0
+    # via
+    #   -r test.txt
+    #   pytest
 pre-commit==1.18.3
+    # via -r local.in
 psycopg2-binary==2.8.3
+    # via -r test.txt
 py==1.8.0
+    # via
+    #   -r test.txt
+    #   pytest
 pycodestyle==2.5.0
+    # via
+    #   -r test.txt
+    #   flake8
 pyflakes==2.1.1
+    # via
+    #   -r test.txt
+    #   flake8
 pyparsing==2.4.2
-pytest-django==3.5.1
+    # via
+    #   -r test.txt
+    #   packaging
 pytest==5.2.1
+    # via
+    #   -r test.txt
+    #   pytest-django
+pytest-django==3.5.1
+    # via -r test.txt
 python-dateutil==2.8.0
+    # via
+    #   -r test.txt
+    #   faker
 python-monkey-business==1.0.0
+    # via
+    #   -r test.txt
+    #   django-nested-admin
 pytz==2019.3
-pyyaml==5.1.2             # via aspy.yaml, pre-commit
+    # via
+    #   -r test.txt
+    #   django
+pyyaml==5.1.2
+    # via
+    #   aspy-yaml
+    #   pre-commit
 requests==2.22.0
+    # via
+    #   -r test.txt
+    #   django-anymail
 seed-isort-config==1.9.3
+    # via -r test.txt
 six==1.12.0
+    # via
+    #   -r test.txt
+    #   cfgv
+    #   django-anymail
+    #   django-extensions
+    #   django-nested-admin
+    #   faker
+    #   packaging
+    #   pip-tools
+    #   pre-commit
+    #   python-dateutil
+    #   python-monkey-business
 sqlparse==0.3.0
+    # via
+    #   -r test.txt
+    #   django
+    #   django-debug-toolbar
 text-unidecode==1.3
-toml==0.10.0              # via pre-commit
+    # via
+    #   -r test.txt
+    #   faker
+toml==0.10.0
+    # via pre-commit
 twitter==1.18.0
+    # via -r test.txt
 urllib3==1.25.6
-virtualenv==16.7.6        # via pre-commit
+    # via
+    #   -r test.txt
+    #   requests
+virtualenv==16.7.6
+    # via pre-commit
 wcwidth==0.1.7
+    # via
+    #   -r test.txt
+    #   pytest
 yapf==0.28.0
+    # via -r test.txt
 zipp==0.6.0
+    # via importlib-metadata
