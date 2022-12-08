@@ -4,8 +4,9 @@
 #
 #    pip-compile --output-file=production.txt production.in
 #
-certifi==2019.9.11
+certifi==2022.12.7
 chardet==3.0.4
+django==2.2.6
 django-admin-ordering==0.11.0
 django-anymail[mailgun]==7.0.0
 django-ckeditor==5.7.1
@@ -15,7 +16,6 @@ django-environ==0.4.5
 django-extensions==2.2.3
 django-js-asset==1.2.2
 django-nested-admin==3.2.4
-django==2.2.6
 easy-thumbnails==2.6
 gunicorn==19.9.0
 idna==2.8
