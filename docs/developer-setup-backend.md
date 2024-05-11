@@ -89,6 +89,21 @@ Install local dependencies, via the local.txt requirements file (this includes b
 cd requirements && pip-sync local.txt
 ```
 
+If there is an error with `pg_config`, and you are running `PostGres.app` on macOS, you might need to run this:
+
+```
+PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH" pip-sync local.txt
+```
+
+If there is an error with `pillow` on macOS you might need to run this:
+
+```
+brew install zlib
+export LDFLAGS="-L/usr/local/opt/zlib/lib"
+export CPPFLAGS="-I/usr/local/opt/zlib/include"
+brew install jpeg
+```
+
 ### Adding a new dependency
 
 Add dependency to corresponding `.in` in the requirements directory file and then run:
