@@ -1,5 +1,5 @@
 var NewWindowLinks = {
-  init: function() {
+  init: function () {
     var links = document.querySelectorAll("a");
     for (var i = 0, linksLength = links.length; i < linksLength; i++) {
       if (links[i].hostname != window.location.hostname) {
@@ -7,7 +7,7 @@ var NewWindowLinks = {
         links[i].rel = "noopener";
       }
     }
-  }
+  },
 };
 
-module.exports = NewWindowLinks;
+export default NewWindowLinks;

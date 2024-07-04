@@ -16,14 +16,14 @@ Once you have cloned this repo, run through the following steps:
 
 ## Python
 
-This project has been developed in Python 3.6.5 - to check what version of Python you are running in your console run:
+This project has been developed in Python 3.12.3 - to check what version of Python you are running in your console run:
 
 ```
 python --version
 python3 --version
 ```
 
-Please install Python 3.6.5 if you do not have it. We suggest using [pyenv](https://github.com/pyenv/pyenv) to manage python versions easily.
+Please install Python 3.12.3 if you do not have it. We suggest using [pyenv](https://github.com/pyenv/pyenv) to manage python versions easily.
 
 
 ### Install pyenv using Homebrew
@@ -40,18 +40,33 @@ eval "$(pyenv init -)"
 ```
 
 
-### Install Python 3.6.5 with pyenv
+### Install Python 3.12.3 with pyenv
 
 ```
-pyenv install 3.6.5
+pyenv install 3.12.3
 ```
 
 
-### Virtualenv
+### Env
 
-When developing Python apps a virtual environment can be used to keep all your dependencies sandboxed for just this project.
+#### Option 1: `venv`
 
-First, install `virtualenv`:
+You can _either_ use the built in venv:
+
+```
+python -m venv env
+```
+
+To activate the virtualenv, run:
+
+```
+source env/bin/activate
+```
+
+
+#### Option 2: `virtualenv`
+
+_Or_, you can use `virtualenv`:
 
 ```
 pip install virtualenv
@@ -60,7 +75,7 @@ pip install virtualenv
 Create the virtualenv:
 
 ```
-virtualenv env --python=$HOME/.pyenv/versions/3.6.5/bin/python
+virtualenv env --python=$HOME/.pyenv/versions/3.12.3/bin/python
 ```
 
 To activate the virtualenv, run:
@@ -127,17 +142,13 @@ If it doesn't work as expected, remove from the `.in` file, run `pip-sync` to up
 
 ### Social media accounts
 
-The site can post new pictures to Twitter, Instagram and Facebook. To do this, accounts/apps need to be set up for both social networks. The relevant access details for these accounts should then be added into the config files.
+The site can post new pictures to Twitter and Facebook. To do this, accounts/apps need to be set up for both social networks. The relevant access details for these accounts should then be added into the config files.
 
 
 #### Twitter
 
 * [Register a new app](https://developer.twitter.com/) with the relevant twitter account - take a note of the four different keys listed below, and make sure the app has read and write access. (Give it read and write access before creating your access tokens so they share this access, to check see [here](https://twitter.com/settings/applications))
 
-
-#### Instagram
-
-Set up a new account and add the username and password to the `.env` file
 
 
 #### Facebook

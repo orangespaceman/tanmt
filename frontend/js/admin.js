@@ -1,6 +1,6 @@
-var nestedAdmin = require("./admin/nested-admin");
-var components = require("./admin/components");
-var tableOptions = require("./admin/table-options");
+import nestedAdmin from "./admin/nested-admin.js";
+import components from "./admin/components.js";
+import tableOptions from "./admin/table-options.js";
 
 nestedAdmin.init();
 components.init();

@@ -13,6 +13,7 @@ from .services import SocialService
 
 
 class GlobalTagsAdmin(admin.ModelAdmin):
+
     def has_add_permission(self, *args, **kwargs):
         return not GlobalTags.objects.exists()
 

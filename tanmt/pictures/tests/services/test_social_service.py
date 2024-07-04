@@ -8,6 +8,7 @@ from ..factories import PictureFactory, TagFactory
 
 
 class TestSocialService(TestCase):
+
     def generate_pictures(self):
         past_date = timezone.now() - timezone.timedelta(days=1)
         PictureFactory(order=3)

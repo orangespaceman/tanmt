@@ -1,10 +1,5 @@
 import logging
 
-from django.contrib.auth.models import User
-from django.db import models
-from django.urls import reverse
-from django_extensions.db.fields import AutoSlugField
-
 from components.models import (
     AbstractEditorial,
     AbstractEmbed,
@@ -13,6 +8,10 @@ from components.models import (
     AbstractQuote,
     AbstractTable,
 )
+from django.contrib.auth.models import User
+from django.db import models
+from django.urls import reverse
+from django_extensions.db.fields import AutoSlugField
 
 logger = logging.getLogger(__name__)
 
@@ -98,6 +97,7 @@ class Embed(AbstractEmbed):
 
 
 class Image(AbstractImage):
+
     def get_upload_path(self, filename):
         id = self.component.page_id
         return f"page/{id}/image/{filename}"
@@ -111,6 +111,7 @@ class Image(AbstractImage):
 
 
 class ImageWithText(AbstractImageWithText):
+
     def get_upload_path(self, filename):
         id = self.component.page_id
         return f"page/{id}/image-with-text/{filename}"

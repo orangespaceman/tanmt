@@ -1,14 +1,14 @@
 var $ = window.django.jQuery;
 
 var NestedAdmin = {
-  init: function() {
+  init: function () {
     $(document).on("formset:added", NestedAdmin.onAddComponent);
   },
 
   // this event is triggered called when both the 'add new component' and
   // the 'add another xxxxx' links are clicked
   // we want to filter only clicks on xxxxx components.
-  onAddComponent: function(event, $row, formsetName) {
+  onAddComponent: function (event, $row, formsetName) {
     // if this is an exercise component, we need to init ckeditor
     if (
       formsetName.toLowerCase().indexOf("exercise") !== -1 ||
@@ -23,9 +23,9 @@ var NestedAdmin = {
   //
   // taken from:
   // https://github.com/django-ckeditor/django-ckeditor/blob/master/ckeditor/static/ckeditor/ckeditor-init.js
-  initCKEditor: function() {
+  initCKEditor: function () {
     var textareas = Array.prototype.slice.call(
-      document.querySelectorAll("textarea[data-type=ckeditortype]")
+      document.querySelectorAll("textarea[data-type=ckeditortype]"),
     );
     for (var i = 0; i < textareas.length; ++i) {
       var t = textareas[i];
@@ -40,11 +40,11 @@ var NestedAdmin = {
         }
         window.CKEDITOR.replace(
           t.id,
-          JSON.parse(t.getAttribute("data-config"))
+          JSON.parse(t.getAttribute("data-config")),
         );
       }
     }
-  }
+  },
 };
 
-module.exports = NestedAdmin;
+export default NestedAdmin;

@@ -35,8 +35,5 @@ tanmt/templates/components
 __pycache__/
 .pytest_cache
 
-# PHP - insta
-insta/vendor
-
 # misc
 notes.txt

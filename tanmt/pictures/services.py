@@ -12,6 +12,7 @@ logger = logging.getLogger(__name__)
 
 
 class SocialService():
+
     def post(self):
         model = Picture.objects.filter(
             published_date__isnull=True).order_by('order')[:1].first()

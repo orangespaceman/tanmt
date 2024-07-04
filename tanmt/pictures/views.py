@@ -9,6 +9,7 @@ from .models import Picture, Tag
 
 
 class NavMixin():
+
     def generate_nav(self, picture):
 
         if picture is None:
@@ -82,6 +83,7 @@ class PictureView(generic.TemplateView, NavMixin):
 
 
 class PictureRandomView(generic.View):
+
     def dispatch(self, request):
         picture = Picture.published_pictures.order_by('?').first()
         if picture is None:

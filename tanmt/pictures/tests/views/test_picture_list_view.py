@@ -6,6 +6,7 @@ from ..factories import PictureFactory, TagFactory
 
 
 class TestPictureListView(TestCase):
+
     def create_published_picture(self, published_id=1, tag_count=0):
         past_date = timezone.now() - timezone.timedelta(days=1)
         tags = TagFactory.create_batch(tag_count)
@@ -17,23 +18,23 @@ class TestPictureListView(TestCase):
         return picture
 
     def test_url_resolves(self):
-        """"
+        """ "
         URL resolves as expected
         """
-        url = reverse('picture-list')
+        url = reverse("picture-list")
 
-        self.assertEqual(url, f"/picture/")
+        self.assertEqual(url, "/picture/")
 
     def test_get(self):
-        """"
+        """ "
         GET request uses template
         """
-        url = reverse('picture-list')
+        url = reverse("picture-list")
 
         response = self.client.get(url)
 
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'pictures/picture-list.html')
+        self.assertTemplateUsed(response, "pictures/picture-list.html")
 
     def test_picture_content(self):
         """
@@ -44,11 +45,11 @@ class TestPictureListView(TestCase):
         third_picture = self.create_published_picture(3, 3)
         PictureFactory()  # unpublished picture
 
-        url = reverse('picture-list')
+        url = reverse("picture-list")
 
         response = self.client.get(url)
 
-        self.assertEqual(response.context['pictures'].count(), 3)
-        self.assertEqual(response.context['pictures'].first(), third_picture)
-        self.assertEqual(response.context['pictures'].last(), first_picture)
-        self.assertEqual(response.context['pictures'].first().tags.count(), 3)
+        self.assertEqual(response.context["pictures"].count(), 3)
+        self.assertEqual(response.context["pictures"].first(), third_picture)
+        self.assertEqual(response.context["pictures"].last(), first_picture)
+        self.assertEqual(response.context["pictures"].first().tags.count(), 3)

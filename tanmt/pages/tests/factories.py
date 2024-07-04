@@ -1,9 +1,8 @@
+from components.models import ALIGNMENT_CHOICES, BACKGROUND_CHOICES
 from factory import Sequence
 from factory.django import ImageField
 from factory.fuzzy import FuzzyChoice, FuzzyText
 from factory_djoy import CleanModelFactory
-
-from components.models import ALIGNMENT_CHOICES, BACKGROUND_CHOICES
 
 from ..models import (
     Component,

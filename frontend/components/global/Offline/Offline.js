@@ -1,11 +1,11 @@
 var Offline = {
-  init: function() {
+  init: function () {
     if ("serviceWorker" in navigator) {
-      window.addEventListener("load", function() {
+      window.addEventListener("load", function () {
         navigator.serviceWorker.register("/service-worker.js");
       });
     }
-  }
+  },
 };
 
-module.exports = Offline;
+export default Offline;

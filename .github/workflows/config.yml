@@ -1,0 +1,75 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.12"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "18"
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: |
+            node_modules
+            venv
+          key: ${{ runner.os }}-build-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/requirements/ci.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-build-
+
+      - name: Install dependencies
+        run: |
+          npm install
+          python -m venv venv
+          source venv/bin/activate
+          pip install -r requirements/ci.txt
+
+      - name: Build frontend
+        run: npm run build
+
+      - name: Lint frontend
+        run: npm run lint
+
+      - name: Lint backend
+        run: |
+          source venv/bin/activate
+          cd tanmt
+          isort --check-only --quiet --recursive --diff tanmt
+          yapf --diff --recursive tanmt
+          flake8
+
+      - name: Test backend
+        run: |
+          source venv/bin/activate
+          cp .env.ci.example .env
+          cd tanmt && python manage.py test --settings=tanmt.settings.ci
+
+
+    services:
+      postgres:
+        image: postgres:13.8
+        env:
+          POSTGRES_USER: testuser
+          POSTGRES_PASSWORD: testpw
+          POSTGRES_DB: testdb
+        ports:
+          - 5432:5432

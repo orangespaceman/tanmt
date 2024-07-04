@@ -1,13 +1,17 @@
-var path = require("path");
+import path from "path";
+import { fileURLToPath } from "url";
 
-module.exports = {
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+export default {
   entry: {
     site: "./frontend/js/site.js",
-    admin: "./frontend/js/admin.js"
+    admin: "./frontend/js/admin.js",
   },
   output: {
     path: path.resolve(__dirname, "frontend/static/js/"),
-    filename: "[name].js"
+    filename: "[name].js",
   },
-  mode: "production"
+  mode: "production",
 };

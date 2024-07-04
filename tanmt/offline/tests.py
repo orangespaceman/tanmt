@@ -3,6 +3,7 @@ from django.urls import reverse
 
 
 class TestOfflineView(TestCase):
+
     def test_url_resolves(self):
         """"
         URL resolves as expected

@@ -4,6 +4,7 @@ from ..factories import PageFactory
 
 
 class TestPageModel(TestCase):
+
     def test_page_url(self):
         """
         Get the URL for the Page instance - via the sluggified title

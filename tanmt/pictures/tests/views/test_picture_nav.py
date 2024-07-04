@@ -6,6 +6,7 @@ from ..factories import PictureFactory, TagFactory
 
 
 class TestPictureNav(TestCase):
+
     def create_published_picture(self, published_id=1, tag_count=0):
         past_date = timezone.now() - timezone.timedelta(days=1)
         tags = TagFactory.create_batch(tag_count)

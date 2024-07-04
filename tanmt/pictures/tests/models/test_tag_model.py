@@ -4,6 +4,7 @@ from ..factories import TagFactory
 
 
 class TestTagModel(TestCase):
+
     def test_custom_slug_creation(self):
         """
         Check slugs are generated as expected

@@ -1,11 +1,11 @@
 from django.test import TestCase
-
 from pages.tests.factories import PageFactory
 
 from ...context_processors.pages import footer_pages, header_pages
 
 
 class TestContextProcessorPages(TestCase):
+
     def test_header_pages(self):
         """
         Return top level pages that should be in the header

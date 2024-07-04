@@ -2,7 +2,6 @@ from django.conf import settings
 from django.conf.urls import include
 from django.conf.urls.static import static
 from django.urls import path, re_path
-
 from error.views import Error400View, Error403View, Error404View, error_500
 
 from .admin import tanmt_admin

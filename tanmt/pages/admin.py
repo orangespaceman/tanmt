@@ -1,6 +1,5 @@
 import nested_admin
 from admin_ordering.admin import OrderableAdmin
-
 from components.admin import (
     AbstractEditorialAdmin,
     AbstractEmbedAdmin,
@@ -9,6 +8,7 @@ from components.admin import (
     AbstractQuoteAdmin,
     AbstractTableAdmin,
 )
+
 from tanmt.admin import tanmt_admin
 
 from .models import (
@@ -116,6 +116,7 @@ class TopLevelPageOrderingAdmin(OrderableAdmin, nested_admin.NestedModelAdmin):
 
 
 class TopLevelPage(Page):
+
     class Meta:
         proxy = True
         verbose_name_plural = "Reorder pages for header/footer menus"

@@ -4,6 +4,7 @@ from ...context_processors.global_config import global_config
 
 
 class TestContextProcessorGlobalConfig(TestCase):
+
     def test_global_config(self):
         """
         Return settings in config object

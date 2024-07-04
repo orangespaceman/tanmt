@@ -24,6 +24,7 @@ class ErrorAbstractView(TemplateView):
 
 
 class Error400View(ErrorAbstractView):
+
     def get_status(self):
         return 400
 
@@ -32,6 +33,7 @@ class Error400View(ErrorAbstractView):
 
 
 class Error403View(ErrorAbstractView):
+
     def get_status(self):
         return 403
 
@@ -40,6 +42,7 @@ class Error403View(ErrorAbstractView):
 
 
 class Error404View(ErrorAbstractView):
+
     def get_status(self):
         return 404
 

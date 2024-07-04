@@ -5,6 +5,7 @@ from ..factories import PictureFactory, TagFactory
 
 
 class TestPictureModel(TestCase):
+
     def test_get_tags_all(self):
         """
         Check tag string is generated as expected

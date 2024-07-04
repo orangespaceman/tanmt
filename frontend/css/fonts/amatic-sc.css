@@ -5,7 +5,8 @@
   font-family: "amatic-sc-bold";
   font-style: normal;
   font-weight: normal;
-  src: url("../fonts/amatic-sc-bold.woff2") format("woff2"),
+  src:
+    url("../fonts/amatic-sc-bold.woff2") format("woff2"),
     url("../fonts/amatic-sc-bold.woff") format("woff");
 }
 
@@ -14,6 +15,7 @@
   font-family: "amatic-sc-regular";
   font-style: normal;
   font-weight: normal;
-  src: url("../fonts/amatic-sc-regular.woff2") format("woff2"),
+  src:
+    url("../fonts/amatic-sc-regular.woff2") format("woff2"),
     url("../fonts/amatic-sc-regular.woff") format("woff");
 }

@@ -17,151 +17,148 @@ app_root = environ.Path(django_root) - 1
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
     # third-party
-    'easy_thumbnails',
-    'django_cron',
-    'ckeditor',
-    'nested_admin',
-    'admin_ordering',
-
+    "easy_thumbnails",
+    "django_cron",
+    "ckeditor",
+    "nested_admin",
+    "admin_ordering",
     # SITE
-    'error.apps.ErrorConfig',
-    'offline.apps.OfflineConfig',
-    'components.apps.ComponentsConfig',
-    'pages.apps.PagesConfig',
-    'pictures.apps.PicturesConfig',
+    "error.apps.ErrorConfig",
+    "offline.apps.OfflineConfig",
+    "components.apps.ComponentsConfig",
+    "pages.apps.PagesConfig",
+    "pictures.apps.PicturesConfig",
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = 'tanmt.urls'
+ROOT_URLCONF = "tanmt.urls"
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [django_root.path('templates/')],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [str(django_root.path("templates/"))],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
                 # SITE
-                'tanmt.context_processors.global_config.global_config',
-                'tanmt.context_processors.pages.header_pages',
-                'tanmt.context_processors.pages.footer_pages',
+                "tanmt.context_processors.global_config.global_config",
+                "tanmt.context_processors.pages.header_pages",
+                "tanmt.context_processors.pages.footer_pages",
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = 'tanmt.wsgi.application'
+WSGI_APPLICATION = "tanmt.wsgi.application"
 
 # Logging
 
 LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'filters': {
-        'require_debug_false': {
-            '()': 'django.utils.log.RequireDebugFalse',
+    "version": 1,
+    "disable_existing_loggers": False,
+    "filters": {
+        "require_debug_false": {
+            "()": "django.utils.log.RequireDebugFalse",
         },
-        'require_debug_true': {
-            '()': 'django.utils.log.RequireDebugTrue',
+        "require_debug_true": {
+            "()": "django.utils.log.RequireDebugTrue",
         },
-        'ignore_404': {
-            '()': 'django.utils.log.CallbackFilter',
-            'callback': skip_404s,
+        "ignore_404": {
+            "()": "django.utils.log.CallbackFilter",
+            "callback": skip_404s,
         },
-        'ignore_during_testing': {
-            '()': 'django.utils.log.CallbackFilter',
-            'callback': skip_during_testing,
+        "ignore_during_testing": {
+            "()": "django.utils.log.CallbackFilter",
+            "callback": skip_during_testing,
         },
     },
-    'formatters': {
-        'save_to_log_file': {
-            'format': '[{asctime}] [{levelname}] ({module}): {message}',
-            'style': '{',
+    "formatters": {
+        "save_to_log_file": {
+            "format": "[{asctime}] [{levelname}] ({module}): {message}",
+            "style": "{",
         },
-        'django_server': {
-            '()': 'django.utils.log.ServerFormatter',
-            'format': '[{server_time}] {message}',
-            'style': '{',
-        }
+        "django_server": {
+            "()": "django.utils.log.ServerFormatter",
+            "format": "[{server_time}] {message}",
+            "style": "{",
+        },
     },
-    'handlers': {
-        'console': {
-            'level': 'INFO',
-            'filters': ['require_debug_true'],
-            'class': 'logging.StreamHandler',
+    "handlers": {
+        "console": {
+            "level": "INFO",
+            "filters": ["require_debug_true"],
+            "class": "logging.StreamHandler",
         },
-        'django_server': {
-            'level': 'INFO',
-            'class': 'logging.StreamHandler',
-            'formatter': 'django_server',
+        "django_server": {
+            "level": "INFO",
+            "class": "logging.StreamHandler",
+            "formatter": "django_server",
         },
-        'save_to_log_file': {
-            'level':
-            'WARNING',
-            'filters': [
-                'ignore_404',
-                'ignore_during_testing',
-                'require_debug_false',
+        "save_to_log_file": {
+            "level":
+            "WARNING",
+            "filters": [
+                "ignore_404",
+                "ignore_during_testing",
+                "require_debug_false",
             ],
-            'class':
-            'logging.handlers.RotatingFileHandler',
-            'filename':
-            os.path.join(app_root.path('logs'), 'django.log'),
-            'maxBytes':
+            "class":
+            "logging.handlers.RotatingFileHandler",
+            "filename":
+            os.path.join(app_root.path("logs"), "django.log"),
+            "maxBytes":
             1024 * 1024 * 15,  # 15MB
-            'backupCount':
+            "backupCount":
             10,
-            'formatter':
-            'save_to_log_file',
+            "formatter":
+            "save_to_log_file",
         },
-        'mail_admins': {
-            'level': 'ERROR',
-            'filters': ['require_debug_false', 'ignore_during_testing'],
-            'class': 'django.utils.log.AdminEmailHandler',
-        }
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['console', 'save_to_log_file', 'mail_admins'],
-            'level': 'INFO',
-        },
-        'django.server': {
-            'handlers': ['django_server', 'save_to_log_file', 'mail_admins'],
-            'level': 'INFO',
-            'propagate': False,
-        },
-        'django.request': {
-            'handlers': ['django_server', 'save_to_log_file', 'mail_admins'],
-            'level': 'INFO',
-            'propagate': False,
+        "mail_admins": {
+            "level": "ERROR",
+            "filters": ["require_debug_false", "ignore_during_testing"],
+            "class": "django.utils.log.AdminEmailHandler",
         },
     },
-    'root': {
-        'handlers': ['console', 'save_to_log_file', 'mail_admins'],
-        'level': 'INFO',
-    }
+    "loggers": {
+        "django": {
+            "handlers": ["console", "save_to_log_file", "mail_admins"],
+            "level": "INFO",
+        },
+        "django.server": {
+            "handlers": ["django_server", "save_to_log_file", "mail_admins"],
+            "level": "INFO",
+            "propagate": False,
+        },
+        "django.request": {
+            "handlers": ["django_server", "save_to_log_file", "mail_admins"],
+            "level": "INFO",
+            "propagate": False,
+        },
+    },
+    "root": {
+        "handlers": ["console", "save_to_log_file", "mail_admins"],
+        "level": "INFO",
+    },
 }
 
 # Password validation
@@ -169,42 +166,42 @@ LOGGING = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME':
-        'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',  # noqa
+        "NAME":
+        "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",  # noqa
     },
     {
-        'NAME':
-        'django.contrib.auth.password_validation.MinimumLengthValidator',
+        "NAME":
+        "django.contrib.auth.password_validation.MinimumLengthValidator",  # noqa
     },
     {
-        'NAME':
-        'django.contrib.auth.password_validation.CommonPasswordValidator',
+        "NAME":
+        "django.contrib.auth.password_validation.CommonPasswordValidator",  # noqa
     },
     {
-        'NAME':
-        'django.contrib.auth.password_validation.NumericPasswordValidator',
+        "NAME":
+        "django.contrib.auth.password_validation.NumericPasswordValidator",  # noqa
     },
 ]
 
 # Files
 
-MEDIA_ROOT = app_root('media')
-MEDIA_URL = '/media/'
+MEDIA_ROOT = app_root("media")
+MEDIA_URL = "/media/"
 
-STATIC_ROOT = app_root('static')
-STATIC_URL = '/static/'
+STATIC_ROOT = app_root("static")
+STATIC_URL = "/static/"
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = [
-    os.path.join(app_root(), 'frontend', 'static'),
+    os.path.join(app_root(), "frontend", "static"),
 ]
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-gb'
+LANGUAGE_CODE = "en-gb"
 
-TIME_ZONE = 'Europe/London'
+TIME_ZONE = "Europe/London"
 
 USE_I18N = True
 
@@ -216,32 +213,32 @@ USE_TZ = True
 # http://django-cron.readthedocs.io/
 
 CRON_CLASSES = [
-    'pictures.cron.SocialCronPost',
+    "pictures.cron.SocialCronPost",
 ]
 
 # CK Editor
 # https://github.com/django-ckeditor/django-ckeditor
 
 CKEDITOR_CONFIGS = {
-    'text': {
-        'toolbar': [
-            ['Undo', 'Redo'],
-            ['Bold', 'Italic'],
-            ['Link', 'Unlink'],
-            ['NumberedList', 'BulletedList'],
+    "text": {
+        "toolbar": [
+            ["Undo", "Redo"],
+            ["Bold", "Italic"],
+            ["Link", "Unlink"],
+            ["NumberedList", "BulletedList"],
         ],
-        'height':
+        "height":
         200,
-        'width':
+        "width":
         700,
-        'removeDialogTabs':
-        'link:advanced;link:target',
+        "removeDialogTabs":
+        "link:advanced;link:target",
     },
-    'table': {
-        'toolbar': [['Undo', 'Redo'], ['Table']],
-        'height': 200,
-        'width': 700,
-        'removeDialogTabs': 'table:advanced',
+    "table": {
+        "toolbar": [["Undo", "Redo"], ["Table"]],
+        "height": 200,
+        "width": 700,
+        "removeDialogTabs": "table:advanced",
     },
 }
 
@@ -253,7 +250,7 @@ FILE_UPLOAD_PERMISSIONS = 0o644
 
 # Site
 
-SITE_TITLE = 'The All New Magic Tortoise'
+SITE_TITLE = "The All New Magic Tortoise"
 SITE_DESCRIPTION = (
-    'Comics and more from the brain (and hands) of The All New Magic Tortoise')
-SITE_SOCIAL = 'TheAllNewMagic'
+    "Comics and more from the brain (and hands) of The All New Magic Tortoise")
+SITE_SOCIAL = "TheAllNewMagic"

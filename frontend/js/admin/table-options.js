@@ -1,7 +1,7 @@
 var TableOptions = {
-  init: function() {
+  init: function () {
     if (window.CKEDITOR) {
-      window.CKEDITOR.on("dialogDefinition", function(ev) {
+      window.CKEDITOR.on("dialogDefinition", function (ev) {
         var dialogName = ev.data.name;
         var dialogDefinition = ev.data.definition;
 
@@ -23,14 +23,14 @@ var TableOptions = {
 
           // these fields are useful for the edit view,
           // their styles are overridden on the side itself
-          dialogDefinition.onShow = function() {
+          dialogDefinition.onShow = function () {
             this.getContentElement("info", "txtBorder").disable();
             this.getContentElement("info", "txtWidth").disable();
           };
         }
       });
     }
-  }
+  },
 };
 
-module.exports = TableOptions;
+export default TableOptions;

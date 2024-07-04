@@ -1,11 +1,8 @@
 {
-  "editor.hover.enabled": true,
-
   // CSS/JS Lint
   "eslint.enable": true,
-  "css.validate": true,
+  "css.validate": false,
   "stylelint.enable": true,
-  "stylelint.autoFixOnSave": true,
 
   // Prettier - enable per-language
   "[javascript]": {
@@ -25,11 +22,7 @@
     "editor.formatOnSave": true
   },
   "python.autoComplete.extraPaths": ["./tanmt"],
-  "python.formatting.provider": "yapf",
-  "python.pythonPath": "env/bin/python3.6",
-  "python.linting.enabled": true,
-  "python.linting.lintOnSave": true,
-  "python.linting.pylintEnabled": false,
-  "python.linting.flake8Enabled": true,
-  "python.linting.pycodestyleEnabled": false
+  "python.analysis.extraPaths": [
+    "./tanmt"
+  ]
 }

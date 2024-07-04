@@ -12,11 +12,13 @@ class AbstractComponentAdmin(nested_admin.NestedStackedInline):
 
 
 class AbstractEditorialAdmin(AbstractComponentAdmin):
+
     class Meta:
         abstract = True
 
 
 class AbstractEmbedAdmin(AbstractComponentAdmin):
+
     class Meta:
         abstract = True
 
@@ -50,10 +52,12 @@ class AbstractImageWithTextAdmin(AbstractComponentAdmin):
 
 
 class AbstractQuoteAdmin(AbstractComponentAdmin):
+
     class Meta:
         abstract = True
 
 
 class AbstractTableAdmin(AbstractComponentAdmin):
+
     class Meta:
         abstract = True

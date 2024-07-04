@@ -2,10 +2,8 @@
  * Site-wide variables
  */
 
+/* stylelint-disable comment-empty-line-before */
 :root {
-
-  /* stylelint-disable comment-empty-line-before */
-
   /* fonts */
 
   --font-headings: "amatic-sc-regular", sans-serif;
@@ -75,6 +73,7 @@
 }
 
 /* media queries */
+
 @custom-media --small (min-width: 30rem);
 @custom-media --medium (min-width: 48rem);
 @custom-media --large (min-width: 62.5rem);

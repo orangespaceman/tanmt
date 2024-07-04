@@ -53,6 +53,7 @@ class Tag(models.Model):
 
 
 class PublishedPictureManager(models.Manager):
+
     def get_queryset(self):
         return super().get_queryset().filter(published_date__isnull=False)
 
@@ -143,6 +144,7 @@ class Picture(models.Model):
 
 
 class Image(models.Model):
+
     def get_upload_path(self, filename):
         id = self.picture_id
         return f"pictures/{id}/image/{filename}"
