@@ -21,7 +21,7 @@ charset-normalizer==3.3.2
     # via
     #   -r test.txt
     #   requests
-django==5.0.6
+django==5.0.7
     # via
     #   -r test.txt
     #   django-anymail
